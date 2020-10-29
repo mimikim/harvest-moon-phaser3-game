@@ -91,8 +91,6 @@ This game concept has grown from a simple exercise to something more substantial
 
 So, obviously I love Harvest Moon because I have clearly spent an incredible amount of time turning these sprites into spritesheets.
 
-The game music is all midi files from [Video Game Music Archive](https://www.vgmusic.com/).
-
 Some character assets came from [The Spriters Resource](https://www.spriters-resource.com/snes/harvestmoon/), but many of them aren't proportioned equally, so I had to take time to re-draw the sprites to make sure each pixel in each sprite was the correct size. The backgrounds or other items, such as the food items, nature items, and misc, come from directly ripping them with an emulator. I use ZSNES.
 
 The tilemaps are all my own work, spending hours in [Tiled](https://www.mapeditor.org/) to create each map and layer.
