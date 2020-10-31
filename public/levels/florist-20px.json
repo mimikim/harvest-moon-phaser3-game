@@ -29,7 +29,7 @@
          "name":"blocked",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":64,
          "x":0,
          "y":0
@@ -54,7 +54,7 @@
                  "visible":true,
                  "width":118.56,
                  "x":660.547,
-                 "y":955.035
+                 "y":966.865430496221
                 }],
          "opacity":1,
          "type":"objectgroup",

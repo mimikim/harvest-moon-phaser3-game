@@ -171,8 +171,8 @@ let gameConfig = {
       imgKey: 'florist',
       tileSetName: 'florist-tilesheet-20px',
       mapBounds: {
-        height: 1280,
-        width: 1040
+        height: 1040,
+        width: 1280
       },
       playerStartPos: {
         sceneTown: {
