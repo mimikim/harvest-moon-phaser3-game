@@ -40,6 +40,40 @@
          "name":"exits",
          "objects":[
                 {
+                 "height":39.9953142203583,
+                 "id":1,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneFlorist"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":111.47,
+                 "x":2944.06,
+                 "y":1003.23
+                }, 
+                {
+                 "height":32.295,
+                 "id":3,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneFortuneTeller"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":84.3838,
+                 "x":2877.38,
+                 "y":2922.18
+                }, 
+                {
                  "height":111.47,
                  "id":4,
                  "name":"",
@@ -55,6 +89,91 @@
                  "width":25.0026,
                  "x":3814.98,
                  "y":2043.96
+                }, 
+                {
+                 "height":29.1697,
+                 "id":5,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneToolshop"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":73.966,
+                 "x":2004.38,
+                 "y":4213.98
+                }, 
+                {
+                 "height":29.1697,
+                 "id":7,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneRestaurant"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":72.9243,
+                 "x":1365.77,
+                 "y":4216.06
+                }, 
+                {
+                 "height":23.3491286694625,
+                 "id":8,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneBar"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":71.8825,
+                 "x":725.076,
+                 "y":4215.02
+                }, 
+                {
+                 "height":25.9159000762486,
+                 "id":9,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneMayor"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":77.0914,
+                 "x":720.908,
+                 "y":622.982
+                }, 
+                {
+                 "height":37.3754000762486,
+                 "id":10,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneChurch"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":150.016,
+                 "x":1764.77,
+                 "y":605.271
                 }],
          "opacity":1,
          "type":"objectgroup",

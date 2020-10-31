@@ -40,6 +40,23 @@
          "name":"exits",
          "objects":[
                 {
+                 "height":22.3574711215998,
+                 "id":7,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneMountains"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":238.479691963731,
+                 "x":520.432244441684,
+                 "y":0
+                }, 
+                {
                  "height":327.90957645013,
                  "id":8,
                  "name":"",
