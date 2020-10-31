@@ -166,7 +166,25 @@ let gameConfig = {
         }
       }
     },
-    sceneFlorist: {},
+    sceneFlorist: {
+      key: 'map-florist',
+      imgKey: 'florist',
+      tileSetName: 'florist-tilesheet-20px',
+      mapBounds: {
+        height: 1280,
+        width: 1040
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 720,
+          y: 850
+        },
+        default: {
+          x: 720,
+          y: 850
+        }
+      }
+    },
     sceneChurch: {},
     sceneMayor: {},
     sceneFortuneTeller: {},

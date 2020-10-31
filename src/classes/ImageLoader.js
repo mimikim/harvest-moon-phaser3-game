@@ -77,6 +77,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneFlorist': {
+        this.scene.load.image( 'florist', 'images/background/building-florist.png' );
+        this.scene.load.tilemapTiledJSON( 'map-florist', 'levels/florist-20px.json' );
         break;
       }
       case 'sceneChurch': {
