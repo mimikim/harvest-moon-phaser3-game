@@ -138,16 +138,16 @@ let gameConfig = {
       },
       playerStartPos: {
         default: {
-          x: 200,
-          y: 200
+          x: 480,
+          y: 680
         },
         sceneFarm: {
           x: 1000,
           y: 3000
         },
         sceneToolShed: {
-          x: 200,
-          y: 200
+          x: 480,
+          y: 680
         },
       }
     },
