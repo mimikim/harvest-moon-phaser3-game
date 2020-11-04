@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="148" height="144" tilewidth="20" tileheight="20" infinite="0" nextlayerid="6" nextobjectid="62">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="148" height="144" tilewidth="20" tileheight="20" infinite="0" nextlayerid="6" nextobjectid="63">
  <editorsettings>
   <export target="farm-20px.json" format="json"/>
  </editorsettings>
@@ -320,6 +320,11 @@
   <object id="33" x="2085.69" y="2283.17" width="68.1372" height="20.6427">
    <properties>
     <property name="exit" value="sceneToolShed"/>
+   </properties>
+  </object>
+  <object id="62" x="1597.55" y="1638.21" width="83.4824" height="18.9733">
+   <properties>
+    <property name="exit" value="sceneCowShed"/>
    </properties>
   </object>
  </objectgroup>

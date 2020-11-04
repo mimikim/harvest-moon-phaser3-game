@@ -111,7 +111,7 @@ let gameConfig = {
       imgKey: 'cave1',
       tileSetName: 'cave1-tilesheet-20px',
       mapBounds: {
-        height: 3690,
+        height: 3680,
         width: 1280
       },
       playerStartPos: {
