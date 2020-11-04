@@ -4,3 +4,5 @@
 /package-lock.json
 .idea
 .DS_Store
+/public/images/bitmap
+/public/images/psd
