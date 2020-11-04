@@ -67,7 +67,29 @@ let gameConfig = {
         }
       }
     },
-    sceneToolShed: {},
+    sceneToolShed: {
+      key: 'map-toolshed',
+      imgKey: 'toolshed',
+      tileSetName: 'tool-shed-tilesheet-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        default: {
+          x: 640,
+          y: 940
+        },
+        sceneFarm: {
+          x: 640,
+          y: 940
+        },
+        sceneCave1: {
+          x: 600,
+          y: 300
+        },
+      }
+    },
     sceneCoop: {
       key: 'map-coop',
       imgKey: 'coop',
@@ -84,7 +106,29 @@ let gameConfig = {
       }
     },
     sceneCowShed: {},
-    sceneCave1: {},
+    sceneCave1: {
+      key: 'map-cave1',
+      imgKey: 'cave1',
+      tileSetName: 'cave1-tilesheet-20px',
+      mapBounds: {
+        height: 3690,
+        width: 1280
+      },
+      playerStartPos: {
+        default: {
+          x: 200,
+          y: 200
+        },
+        sceneFarm: {
+          x: 1000,
+          y: 3000
+        },
+        sceneToolShed: {
+          x: 200,
+          y: 200
+        },
+      }
+    },
 
     // mountains
     sceneCrossRoads: {

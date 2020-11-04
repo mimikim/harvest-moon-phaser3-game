@@ -37,7 +37,13 @@ export default class ImageLoader {
         break;
       }
       case 'sceneCave1': {
-        this.scene.load.image( 'cave1', 'images/background/farm-underground.png' );
+        this.scene.load.image( 'cave1', 'images/background/cave1.png' );
+        this.scene.load.tilemapTiledJSON( 'map-cave1', 'levels/cave1-20px.json' );
+        break;
+      }
+      case 'sceneToolShed': {
+        this.scene.load.image( 'toolshed', 'images/background/tool-shed.png' );
+        this.scene.load.tilemapTiledJSON( 'map-toolshed', 'levels/tool-shed-20px.json' );
         break;
       }
 
