@@ -21,7 +21,7 @@
          "name":"blocked",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":64,
          "x":0,
          "y":0
@@ -32,7 +32,7 @@
          "name":"exits",
          "objects":[
                 {
-                 "height":37.577365163572,
+                 "height":37.5774,
                  "id":1,
                  "name":"",
                  "properties":[
@@ -44,12 +44,12 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":158.045977011494,
-                 "x":400.088417329797,
-                 "y":761.494252873563
+                 "width":158.046,
+                 "x":400.088,
+                 "y":761.494
                 }, 
                 {
-                 "height":24.514425796719,
+                 "height":24.5144,
                  "id":2,
                  "name":"",
                  "properties":[
@@ -61,9 +61,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":45.2574014708655,
-                 "x":1044.69168395248,
-                 "y":3019.98868564963
+                 "width":45.2574,
+                 "x":1044.69,
+                 "y":3019.99
                 }],
          "opacity":1,
          "type":"objectgroup",

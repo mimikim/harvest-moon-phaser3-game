@@ -34,6 +34,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneCowShed': {
+        this.scene.load.image( 'cowshed', 'images/background/cow-shed.png' );
+        this.scene.load.tilemapTiledJSON( 'map-cowshed', 'levels/cow-shed-20px.json' );
         break;
       }
       case 'sceneCave1': {

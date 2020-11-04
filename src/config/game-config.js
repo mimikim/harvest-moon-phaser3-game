@@ -49,6 +49,10 @@ let gameConfig = {
         sceneCrossRoads: {
           x: 100,
           y: 2200
+        },
+        sceneCowShed: {
+          x: 1640,
+          y: 1780
         }
       }
     },
@@ -105,7 +109,25 @@ let gameConfig = {
         }
       }
     },
-    sceneCowShed: {},
+    sceneCowShed: {
+      key: 'map-cowshed',
+      imgKey: 'cowshed',
+      tileSetName: 'cow-shed-tilesheet-20px',
+      mapBounds: {
+        height: 1840,
+        width: 1280
+      },
+      playerStartPos: {
+        default: {
+          x: 640,
+          y: 1700
+        },
+        sceneFarm: {
+          x: 640,
+          y: 1700
+        },
+      }
+    },
     sceneCave1: {
       key: 'map-cave1',
       imgKey: 'cave1',
