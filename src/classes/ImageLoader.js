@@ -75,12 +75,18 @@ export default class ImageLoader {
         break;
       }
       case 'sceneBar': {
+        this.scene.load.image( 'bar', 'images/background/building-bar.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bar', 'levels/bar-20px.json' );
         break;
       }
       case 'sceneRestaurant': {
+         this.scene.load.image( 'restaurant', 'images/background/building-restaurant.png' );
+         this.scene.load.tilemapTiledJSON( 'map-restaurant', 'levels/restaurant-20px.json' );
         break;
       }
       case 'sceneToolShop': {
+        this.scene.load.image( 'toolshop', 'images/background/building-tools.png' );
+        this.scene.load.tilemapTiledJSON( 'map-toolshop', 'levels/tools-20px.json' );
         break;
       }
       case 'sceneFortuneTeller': {
@@ -103,6 +109,23 @@ export default class ImageLoader {
         break;
       }
 
+      // town bedrooms
+      case 'sceneBedroomBar': {
+        break;
+      }
+      case 'sceneBedroomManor': {
+        break;
+      }
+      case 'sceneBedroomRestaurant': {
+        this.scene.load.image( 'bedroom-restaurant', 'images/background/bedroom-restaurant.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-restaurant', 'levels/bedroom-restaurant-20px.json' );
+        break;
+      }
+      case 'sceneBedroomTools': {
+        this.scene.load.image( 'bedroom-tools', 'images/background/bedroom-tools.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-tools', 'levels/bedroom-tools-20px.json' );
+        break;
+      }
       default:
         break;
     }

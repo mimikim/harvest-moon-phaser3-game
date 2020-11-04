@@ -270,7 +270,7 @@ let gameConfig = {
       }
     },
     sceneChurch: {},
-    sceneMayor: {},
+    sceneManor: {},
     sceneFortuneTeller: {
       key: 'map-fortuneteller',
       imgKey: 'fortuneteller',
@@ -290,10 +290,114 @@ let gameConfig = {
         },
       }
     },
-    sceneBar: {},
-    sceneRestaurant: {},
-    sceneToolShop: {},
-    sceneAnimalShop: {}
+    sceneBar: {
+      key: 'map-bar',
+      imgKey: 'bar',
+      tileSetName: 'bar-tileset-20px',
+      mapBounds: {
+        height: 1040,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 750,
+          y: 800
+        },
+        default: {
+          x: 750,
+          y: 800
+        },
+      }
+    },
+    sceneRestaurant: {
+      key: 'map-restaurant',
+      imgKey: 'restaurant',
+      tileSetName: 'restaurant-tileset-20px',
+      mapBounds: {
+        height: 1040,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 720,
+          y: 880
+        },
+        sceneBedroomRestaurant: {
+          x: 520,
+          y: 270
+        },
+        default: {
+          x: 720,
+          y: 880
+        },
+      }
+    },
+    sceneToolShop: {
+      key: 'map-toolshop',
+      imgKey: 'toolshop',
+      tileSetName: 'tools-tileset-20px',
+      mapBounds: {
+        height: 1040,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 720,
+          y: 880
+        },
+        sceneBedroomTools: {
+          x: 520,
+          y: 270
+        },
+        default: {
+          x: 720,
+          y: 880
+        },
+      }
+    },
+    sceneAnimalShop: {},
+
+    // townspeople bedroom
+    sceneBedroomBar: {},
+    sceneBedroomManor: {},
+    sceneBedroomRestaurant: {
+      key: 'map-bedroom-restaurant',
+      imgKey: 'bedroom-restaurant',
+      tileSetName: 'bedroom-restaurant-tileset-20px',
+      mapBounds: {
+        height: 1040,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneRestaurant: {
+          x: 520,
+          y: 880
+        },
+        default: {
+          x: 520,
+          y: 880
+        },
+      }
+    },
+    sceneBedroomTools: {
+      key: 'map-bedroom-tools',
+      imgKey: 'bedroom-tools',
+      tileSetName: 'bedroom-tools-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneToolShop: {
+          x: 520,
+          y: 880
+        },
+        default: {
+          x: 520,
+          y: 880
+        },
+      }
+    }
   },
 
   // keeping track of your score

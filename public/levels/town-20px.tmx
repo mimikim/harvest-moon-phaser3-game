@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="192" height="248" tilewidth="20" tileheight="20" infinite="0" nextlayerid="4" nextobjectid="13">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="192" height="248" tilewidth="20" tileheight="20" infinite="0" nextlayerid="4" nextobjectid="15">
  <editorsettings>
   <export target="town-20px.json" format="json"/>
  </editorsettings>
@@ -526,7 +526,7 @@
   </object>
   <object id="5" x="1995.75" y="4213.98" width="88.3531" height="29.1697">
    <properties>
-    <property name="exit" value="sceneToolshop"/>
+    <property name="exit" value="sceneToolShop"/>
    </properties>
   </object>
   <object id="7" x="1355.22" y="4216.06" width="91.148" height="29.1697">
@@ -541,7 +541,7 @@
   </object>
   <object id="9" x="720.908" y="622.982" width="77.0914" height="25.9159">
    <properties>
-    <property name="exit" value="sceneMayor"/>
+    <property name="exit" value="sceneManor"/>
    </properties>
   </object>
   <object id="10" x="1764.77" y="605.271" width="150.016" height="37.3754">
