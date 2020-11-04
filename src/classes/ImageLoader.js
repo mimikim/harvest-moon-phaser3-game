@@ -56,6 +56,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneMountains': {
+        this.scene.load.image( 'mountains', 'images/background/mountains.png' );
+        this.scene.load.tilemapTiledJSON( 'map-mountains', 'levels/mountain-20px.json' );
         break;
       }
       case 'sceneCliff': {
@@ -82,6 +84,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneFortuneTeller': {
+        this.scene.load.image( 'fortuneteller', 'images/background/building-fortuneteller.png' );
+        this.scene.load.tilemapTiledJSON( 'map-fortuneteller', 'levels/fortuneteller-20px.json' );
         break;
       }
       case 'sceneFlorist': {
@@ -93,6 +97,9 @@ export default class ImageLoader {
         break;
       }
       case 'sceneMayor': {
+        break;
+      }
+      case 'sceneAnimalShop': {
         break;
       }
 

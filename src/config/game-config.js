@@ -131,7 +131,7 @@ let gameConfig = {
     sceneCave1: {
       key: 'map-cave1',
       imgKey: 'cave1',
-      tileSetName: 'cave1-tilesheet-20px',
+      tileSetName: 'cave1-tileset-20px',
       mapBounds: {
         height: 3680,
         width: 1280
@@ -180,7 +180,25 @@ let gameConfig = {
         },
       }
     },
-    sceneMountains: {},
+    sceneMountains: {
+      key: 'map-mountains',
+      imgKey: 'mountains',
+      tileSetName: 'mountain-tileset-20px',
+      mapBounds: {
+        height: 3700,
+        width: 3840
+      },
+      playerStartPos: {
+        sceneCrossRoads: {
+          x: 1700,
+          y: 3550
+        },
+        default: {
+          x: 1700,
+          y: 3550
+        },
+      }
+    },
     sceneCliff: {},
     sceneCave2: {},
 
@@ -253,10 +271,29 @@ let gameConfig = {
     },
     sceneChurch: {},
     sceneMayor: {},
-    sceneFortuneTeller: {},
+    sceneFortuneTeller: {
+      key: 'map-fortuneteller',
+      imgKey: 'fortuneteller',
+      tileSetName: 'fortuneteller-tileset-20px',
+      mapBounds: {
+        height: 1040,
+        width: 1120
+      },
+      playerStartPos: {
+        default: {
+          x: 560,
+          y: 900
+        },
+        sceneTown: {
+          x: 560,
+          y: 900
+        },
+      }
+    },
     sceneBar: {},
     sceneRestaurant: {},
-    sceneToolShop: {}
+    sceneToolShop: {},
+    sceneAnimalShop: {}
   },
 
   // keeping track of your score

@@ -3,7 +3,7 @@
  <editorsettings>
   <export target="cave1-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" name="cave1-tilesheet-20px" tilewidth="20" tileheight="20" tilecount="11776" columns="64">
+ <tileset firstgid="1" name="cave1-tileset-20px" tilewidth="20" tileheight="20" tilecount="11776" columns="64">
   <image source="../images/background/cave1.png" width="1280" height="3680"/>
  </tileset>
  <layer id="1" name="background" width="64" height="184">
