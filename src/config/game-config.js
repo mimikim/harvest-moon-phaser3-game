@@ -224,7 +224,7 @@ let gameConfig = {
           x: 1840,
           y: 765
         },
-        sceneMayor: {
+        sceneManor: {
           x: 760,
           y: 735
         },
@@ -270,7 +270,29 @@ let gameConfig = {
       }
     },
     sceneChurch: {},
-    sceneManor: {},
+    sceneManor: {
+      key: 'map-manor',
+      imgKey: 'manor',
+      tileSetName: 'manor-tileset-20px',
+      mapBounds: {
+        height: 1000,
+        width: 2160
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 560,
+          y: 750
+        },
+        sceneManorHallway: {
+          x: 688,
+          y: 300
+        },
+        default: {
+          x: 560,
+          y: 750
+        },
+      }
+    },
     sceneFortuneTeller: {
       key: 'map-fortuneteller',
       imgKey: 'fortuneteller',
@@ -359,7 +381,48 @@ let gameConfig = {
 
     // townspeople bedroom
     sceneBedroomBar: {},
-    sceneBedroomManor: {},
+    sceneBedroomManor: {
+      key: 'map-bedroom-manor',
+      imgKey: 'bedroom-manor',
+      tileSetName: 'bedroom-manor-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneManorHallway: {
+          x: 770,
+          y: 430
+        },
+        default: {
+          x: 770,
+          y: 430
+        },
+      }
+    },
+    sceneManorHallway: {
+       key: 'map-manor-hallway',
+      imgKey: 'manor-hallway',
+      tileSetName: 'manor-hallway-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneManor: {
+          x: 880,
+          y: 700
+        },
+        sceneBedroomManor: {
+          x: 400,
+          y: 700
+        },
+        default: {
+          x: 880,
+          y: 700
+        },
+      }
+    },
     sceneBedroomRestaurant: {
       key: 'map-bedroom-restaurant',
       imgKey: 'bedroom-restaurant',

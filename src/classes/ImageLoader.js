@@ -102,7 +102,9 @@ export default class ImageLoader {
       case 'sceneChurch': {
         break;
       }
-      case 'sceneMayor': {
+      case 'sceneManor': {
+        this.scene.load.image( 'manor', 'images/background/building-manor.png' );
+        this.scene.load.tilemapTiledJSON( 'map-manor', 'levels/manor-20px.json' );
         break;
       }
       case 'sceneAnimalShop': {
@@ -114,6 +116,13 @@ export default class ImageLoader {
         break;
       }
       case 'sceneBedroomManor': {
+        this.scene.load.image( 'bedroom-manor', 'images/background/bedroom-manor.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-manor', 'levels/bedroom-manor-20px.json' );
+        break;
+      }
+      case 'sceneManorHallway': {
+        this.scene.load.image( 'manor-hallway', 'images/background/building-manor-hallway.png' );
+        this.scene.load.tilemapTiledJSON( 'map-manor-hallway', 'levels/manor-hallway-20px.json' );
         break;
       }
       case 'sceneBedroomRestaurant': {
