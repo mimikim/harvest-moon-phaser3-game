@@ -283,12 +283,12 @@ let gameConfig = {
       },
       playerStartPos: {
         sceneTown: {
-          x: 750,
-          y: 1900
+          x: 650,
+          y: 1950
         },
         default: {
-          x: 750,
-          y: 1900
+          x: 650,
+          y: 1950
         },
       }
     },
@@ -522,6 +522,9 @@ let gameConfig = {
           y: 880
         },
       }
+    },
+    sceneBedroomFlorist: {
+
     }
   },
 

@@ -141,6 +141,9 @@ export default class ImageLoader {
         this.scene.load.tilemapTiledJSON( 'map-bedroom-tools', 'levels/bedroom-tools-20px.json' );
         break;
       }
+      case 'sceneBedroomFlorist': {
+        break;
+      }
       default:
         break;
     }
