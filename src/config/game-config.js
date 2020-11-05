@@ -523,9 +523,7 @@ let gameConfig = {
         },
       }
     },
-    sceneBedroomFlorist: {
-
-    }
+    sceneBedroomFlorist: {}
   },
 
   // keeping track of your score

@@ -147,7 +147,6 @@ export default class ImageLoader {
       default:
         break;
     }
-
   }
 
   // all people

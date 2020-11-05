@@ -30,6 +30,7 @@ export default class Game extends Phaser.Scene {
 
     // default vars
     this.pressedCursor = 'down'; // keeps track of what cursor was pressed previously
+    this.actionAnimation = ''; // stores action animation to play on SPACE press
   }
 
   preload() {
@@ -75,7 +76,7 @@ export default class Game extends Phaser.Scene {
     this.createEventListeners();  // event listeners
 
     this.dialogBox = new DialogBox( this, 'tasks' );
-  };
+  }
 
   // update loop
   update() {
@@ -136,8 +137,8 @@ export default class Game extends Phaser.Scene {
   }
 
   createEventListeners() {
-    // if SPACE bar is pressed, "ring bell" animaton
-    this.input.keyboard.on( 'keydown_SPACE', e => {
+    // if SPACE bar is pressed, play stored Action animation
+    this.input.keyboard.on( 'keydown_SPACE', () => {
       gameConfig.pauseUpdateLoop = true;
       this.stopPlayerAnim();
 
@@ -160,7 +161,7 @@ export default class Game extends Phaser.Scene {
     } );
 
     // on SHIFT, bring up list of tasks, animal status
-    this.input.keyboard.on( 'keydown_SHIFT', e => {
+    this.input.keyboard.on( 'keydown_SHIFT', () => {
       this.dialogBox.loadBox();
     });
 
@@ -173,8 +174,13 @@ export default class Game extends Phaser.Scene {
       }
     }.bind( this ) );
 
+    // ESC closes open dialog box
+    this.input.keyboard.on('keydown_ESC', () => {
+      this.dialogBox.hideBox();
+    });
+
     // on animation complete, sets standing texture
-    this.player.on( 'animationcomplete', function( animation, frame ) {
+    this.player.on( 'animationcomplete', ( animation, frame ) => {
       switch( this.pressedCursor ) {
         case 'down':
           this.player.setTexture( 'jack-standing', 0 );
@@ -193,9 +199,6 @@ export default class Game extends Phaser.Scene {
       }
     }, this);
 
-    this.input.keyboard.on('keydown_ESC', function (e) {
-      // this.dialogBox.hideBox();
-    });
   }
 
   // returns frame for player's Standing sprite

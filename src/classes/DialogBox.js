@@ -103,10 +103,10 @@ export default class DialogBox {
     this.scene.scrollBtn = this.scene.add.image( config.width - 50, config.height - 45, 'scroll-btn' ).setScrollFactor( 0 );
     this.scene.scrollBtn.setInteractive( { useHandCursor: true  } ).setVisible( false );
 
-    // this.scene.scrollBtn.on('pointerdown', function (pointer) {
-    //   console.log( 'clicked' );
-    //   console.log( pointer );
-    // });
+    this.scene.scrollBtn.on('pointerdown', function (pointer) {
+      console.log( 'clicked' );
+      console.log( pointer );
+    });
   }
 
   addText() {
@@ -147,5 +147,8 @@ export default class DialogBox {
     this.scene.closeBtn.setVisible( false );
     this.scene.scrollBtn.setVisible( false );
   }
+
+  // update text in box
+  updateText() {}
 
 }
