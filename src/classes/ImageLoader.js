@@ -100,6 +100,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneChurch': {
+        this.scene.load.image( 'church', 'images/background/building-church.png' );
+        this.scene.load.tilemapTiledJSON( 'map-church', 'levels/church-20px.json' );
         break;
       }
       case 'sceneManor': {
@@ -108,6 +110,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneAnimalShop': {
+        this.scene.load.image( 'animal-shop', 'images/background/building-animal-shop.png' );
+        this.scene.load.tilemapTiledJSON( 'map-animal-shop', 'levels/animal-shop-20px.json' );
         break;
       }
 

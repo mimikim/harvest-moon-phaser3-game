@@ -244,6 +244,10 @@ let gameConfig = {
           x: 2040,
           y: 4340
         },
+        sceneAnimalShop: {
+          x: 3000,
+          y: 4440
+        },
         default: {
           x: 3770,
           y: 2095
@@ -269,7 +273,25 @@ let gameConfig = {
         }
       }
     },
-    sceneChurch: {},
+    sceneChurch: {
+      key: 'map-church',
+      imgKey: 'church',
+      tileSetName: 'church-tileset-20px',
+      mapBounds: {
+        height: 2120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 750,
+          y: 1900
+        },
+        default: {
+          x: 750,
+          y: 1900
+        },
+      }
+    },
     sceneManor: {
       key: 'map-manor',
       imgKey: 'manor',
@@ -381,7 +403,25 @@ let gameConfig = {
         },
       }
     },
-    sceneAnimalShop: {},
+    sceneAnimalShop: {
+      key: 'map-animal-shop',
+      imgKey: 'animal-shop',
+      tileSetName: 'animal-shop-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneTown: {
+          x: 640,
+          y: 960
+        },
+        default: {
+          x: 640,
+          y: 960
+        },
+      }
+    },
 
     // townspeople bedroom
     sceneBedroomBar: {
@@ -423,7 +463,7 @@ let gameConfig = {
       }
     },
     sceneManorHallway: {
-       key: 'map-manor-hallway',
+      key: 'map-manor-hallway',
       imgKey: 'manor-hallway',
       tileSetName: 'manor-hallway-tileset-20px',
       mapBounds: {
