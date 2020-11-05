@@ -322,12 +322,16 @@ let gameConfig = {
       },
       playerStartPos: {
         sceneTown: {
-          x: 750,
-          y: 800
+          x: 730,
+          y: 880
+        },
+        sceneBedroomBar: {
+          x: 680,
+          y: 250
         },
         default: {
-          x: 750,
-          y: 800
+          x: 730,
+          y: 880
         },
       }
     },
@@ -380,7 +384,25 @@ let gameConfig = {
     sceneAnimalShop: {},
 
     // townspeople bedroom
-    sceneBedroomBar: {},
+    sceneBedroomBar: {
+      key: 'map-bedroom-bar',
+      imgKey: 'bedroom-bar',
+      tileSetName: 'bedroom-bar-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneBar: {
+          x: 675,
+          y: 950
+        },
+        default: {
+          x: 675,
+          y: 950
+        },
+      }
+    },
     sceneBedroomManor: {
       key: 'map-bedroom-manor',
       imgKey: 'bedroom-manor',

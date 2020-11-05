@@ -113,6 +113,8 @@ export default class ImageLoader {
 
       // town bedrooms
       case 'sceneBedroomBar': {
+        this.scene.load.image( 'bedroom-bar', 'images/background/bedroom-bar.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-bar', 'levels/bedroom-bar-20px.json' );
         break;
       }
       case 'sceneBedroomManor': {
