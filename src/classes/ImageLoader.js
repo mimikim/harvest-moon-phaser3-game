@@ -62,9 +62,12 @@ export default class ImageLoader {
       }
       case 'sceneCliff': {
         this.scene.load.image( 'cliff', 'images/background/cliff.png' );
+        // this.scene.load.tilemapTiledJSON( 'map-cliff', 'levels/cliff-20px.json' );
         break;
       }
       case 'sceneCave2': {
+        this.scene.load.image( 'cave2', 'images/background/cave2.png' );
+        // this.scene.load.tilemapTiledJSON( 'map-cave2', 'levels/cave2-20px.json' );
         break;
       }
 
@@ -142,6 +145,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneBedroomFlorist': {
+        this.scene.load.image( 'bedroom-florist', 'images/background/bedroom-florist.png' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-florist', 'levels/bedroom-florist-20px.json' );
         break;
       }
       default:

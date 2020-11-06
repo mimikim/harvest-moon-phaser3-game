@@ -267,6 +267,10 @@ let gameConfig = {
           x: 720,
           y: 850
         },
+        sceneBedroomFlorist: {
+          x: 520,
+          y: 270
+        },
         default: {
           x: 720,
           y: 850
@@ -278,17 +282,17 @@ let gameConfig = {
       imgKey: 'church',
       tileSetName: 'church-tileset-20px',
       mapBounds: {
-        height: 2120,
+        height: 2360,
         width: 1280
       },
       playerStartPos: {
         sceneTown: {
-          x: 650,
-          y: 1950
+          x: 645,
+          y: 2200
         },
         default: {
-          x: 650,
-          y: 1950
+          x: 645,
+          y: 2200
         },
       }
     },
@@ -523,7 +527,25 @@ let gameConfig = {
         },
       }
     },
-    sceneBedroomFlorist: {}
+    sceneBedroomFlorist: {
+      key: 'map-bedroom-florist',
+      imgKey: 'bedroom-florist',
+      tileSetName: 'bedroom-florist-tileset-20px',
+      mapBounds: {
+        height: 1120,
+        width: 1280
+      },
+      playerStartPos: {
+        sceneFlorist: {
+          x: 520,
+          y: 880
+        },
+        default: {
+          x: 520,
+          y: 880
+        },
+      }
+    }
   },
 
   // keeping track of your score

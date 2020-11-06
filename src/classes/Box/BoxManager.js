@@ -13,7 +13,7 @@ export default class BoxManager {
   /**
    * On load, define what type of Box we are making
    * @param scene : scene
-   * @param type : string type of Box to load
+   * @param type : string type of Box to load ( status/task box or dialog box )
    */
   constructor( scene, type ) {
     this.scene = scene;

@@ -76,6 +76,7 @@ export default class Game extends Phaser.Scene {
     this.createEventListeners();  // event listeners
 
     this.dialogBox = new DialogBox( this, 'tasks' );
+    this.talkBox = new DialogBox( this, 'dialog' );
   }
 
   // update loop
@@ -162,10 +163,21 @@ export default class Game extends Phaser.Scene {
 
     // on SHIFT, bring up list of tasks, animal status
     this.input.keyboard.on( 'keydown_SHIFT', () => {
+      // displays 3 buttons to see Animal Status or Active Tasks (w/ task status)
+      // the 3 buttons correspond to 1 2 3 number keys
+      // on button select, load the appropriate content
       this.dialogBox.loadBox();
     });
 
-    // restart update loop, if not pressing SELECT or SHIFT
+    // on ENTER, open dialog box for animals/person/point-of-interest
+    this.input.keyboard.on( 'keydown_ENTER', () => {
+      // determine what box Player is colliding with
+      // then, pass what it is into loadBox()
+
+      this.talkBox.loadBox();
+    });
+
+    // restart update loop, if not pressing SPACE or SHIFT
     this.input.keyboard.on( 'keydown', function( e ) {
       if ( e.keyCode !== '32'&& e.code !== 'Space'
         && e.keyCode !== '16' && e.code !== 'Shift'
@@ -229,5 +241,7 @@ export default class Game extends Phaser.Scene {
       return playerCoords.default;
     }
   }
+
+
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="64" height="52" tilewidth="20" tileheight="20" infinite="0" nextlayerid="4" nextobjectid="3">
+<map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="64" height="52" tilewidth="20" tileheight="20" infinite="0" nextlayerid="4" nextobjectid="4">
  <editorsettings>
   <export target="florist-20px.json" format="json"/>
  </editorsettings>
@@ -122,6 +122,11 @@
   <object id="1" x="660.547" y="966.865" width="118.56" height="26.7716">
    <properties>
     <property name="exit" value="sceneTown"/>
+   </properties>
+  </object>
+  <object id="3" x="486.375" y="126.48" width="70.1391" height="18.3971">
+   <properties>
+    <property name="exit" value="sceneBedroomFlorist"/>
    </properties>
   </object>
  </objectgroup>

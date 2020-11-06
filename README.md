@@ -18,9 +18,11 @@ This is a pacifist game. You cannot use any animal products nor attack anyone. Y
 
 Using the Arrow Keys will move Jack around the map.
 
-Pressing "SELECT" will bring up a list of tasks that need to be completed before the festival, as well as a list of your animals and their hungry/happy status. Animals will remain in their relative locations each day, so you don't have to worry about searching for them all over the map.
+Pressing "SHIFT" will bring up a list of tasks that need to be completed before the festival, as well as a list of your animals and their hungry/happy status. Animals will remain in their relative locations each day, so you don't have to worry about searching for them all over the map.
 
-Pressing "SPACE BAR" next to an item or animal or person will initiate the proper action, whether that is picking up an item, harvesting a crop, feeding an animal, or talking to a person. No need to switch between equipped items like you would in the original game! Make sure you are facing the item you want to interact with.
+Pressing "SPACE BAR" next to an item or animal or person will initiate the proper action, whether that is picking up an item, harvesting a crop or feeding an animal. No need to switch between equipped items like you would in the original game! Make sure you are facing the item you want to interact with.
+
+Pressing "ENTER" while facing a person, animal, or point-of-interest will initiate dialog.
 
 ## Game Notes:
 

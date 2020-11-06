@@ -54,7 +54,24 @@
                  "visible":true,
                  "width":118.56,
                  "x":660.547,
-                 "y":966.865430496221
+                 "y":966.865
+                }, 
+                {
+                 "height":18.3971484419915,
+                 "id":3,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"exit",
+                         "type":"string",
+                         "value":"sceneBedroomFlorist"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":70.1391284350925,
+                 "x":486.37461193515,
+                 "y":126.480395538691
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -63,7 +80,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":3,
+ "nextobjectid":4,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.3.5",

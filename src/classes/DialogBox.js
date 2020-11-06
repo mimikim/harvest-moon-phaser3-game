@@ -1,5 +1,5 @@
 /**
- * Dialog Box, returns list of active Tasks and their completion status
+ * Modal Box, returns list of Tasks/Animal Status OR dialog box
  */
 
 import config from '../config';
@@ -21,6 +21,8 @@ export default class DialogBox {
       fill: 0xFFFFFF,
       alpha: 0.8
     };
+
+    // passed TYPE determines what kind of box to open,
 
     if ( type === 'dialog' || type === 'tasks' ) {
       gameConfig.taskMenuOpen = true;
@@ -52,8 +54,10 @@ export default class DialogBox {
       }
     } ).setScrollFactor( 0 );
 
+    // creating interactable elements
     this.createCloseBtn();
     this.createScrollBtn();
+    this.createTabs();
 
     // adding graphic to rounded rectangle
     this.scene.box.fillRoundedRect(
@@ -82,7 +86,10 @@ export default class DialogBox {
       0
     );
 
-    this.addText();
+    // grab text for box
+    let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Praesent semper feugiat nibh sed pulvinar proin gravida. Facilisis sed odio morbi quis commodo odio aenean sed. Id eu nisl nunc mi ipsum. Est ullamcorper eget nulla facilisi etiam. Potenti nullam ac tortor vitae purus faucibus. Aenean pharetra magna ac placerat vestibulum. At urna condimentum mattis pellentesque id. Purus gravida quis blandit turpis cursus in hac. Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.";
+
+    this.addText( text );
 
     // hide on game load
     this.hideBox();
@@ -109,11 +116,11 @@ export default class DialogBox {
     });
   }
 
-  addText() {
+  addText( text ) {
     this.scene.textbox = this.scene.make.text({
       x: this.boxConfig.x,
       y: this.boxConfig.y,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Praesent semper feugiat nibh sed pulvinar proin gravida. Facilisis sed odio morbi quis commodo odio aenean sed. Id eu nisl nunc mi ipsum. Est ullamcorper eget nulla facilisi etiam. Potenti nullam ac tortor vitae purus faucibus. Aenean pharetra magna ac placerat vestibulum. At urna condimentum mattis pellentesque id. Purus gravida quis blandit turpis cursus in hac. Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.",
+      text: text,
       style: {
         font: '25px monospace',
         fill: '#000000',
@@ -121,11 +128,6 @@ export default class DialogBox {
         wordWrap: { width: 700 }
       }
     }).setScrollFactor( 0 ).setVisible( false );
-
-    // enable scrolling
-    if ( this.scene.textbox.height > this.scene.maskBox.height ) {
-      this.scene.scrollBtn.setVisible( true );
-    }
 
     // create a mask on the box, will only show text
     this.scene.mask = this.scene.textbox.createBitmapMask();
@@ -150,5 +152,8 @@ export default class DialogBox {
 
   // update text in box
   updateText() {}
+
+  // creates tabs, each of which
+  createTabs() {}
 
 }
