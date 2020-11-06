@@ -12,9 +12,8 @@ import Map from '../classes/Map';
 import ObjectLoader from '../classes/ObjectLoader';
 import Player from '../sprites/Player';
 import ImageLoader from '../classes/ImageLoader';
-import DialogBox from '../classes/DialogBox';
 import config from "../config";
-// import BoxManager from '../classes/Box/BoxManager';
+import BoxManager from '../classes/Box/BoxManager';
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -75,8 +74,7 @@ export default class Game extends Phaser.Scene {
     this.createObjectLoader();  // generate items
     this.createEventListeners();  // event listeners
 
-    this.dialogBox = new DialogBox( this, 'tasks' );
-    this.talkBox = new DialogBox( this, 'dialog' );
+    this.boxManager = new BoxManager( this );
   }
 
   // update loop
@@ -161,26 +159,21 @@ export default class Game extends Phaser.Scene {
       }
     } );
 
-    // on SHIFT, bring up list of tasks, animal status
+    // on SHIFT, display Animal Status / Active Tasks buttons
     this.input.keyboard.on( 'keydown_SHIFT', () => {
-      // displays 3 buttons to see Animal Status or Active Tasks (w/ task status)
-      // the 3 buttons correspond to 1 2 3 number keys
-      // on button select, load the appropriate content
-      this.dialogBox.loadBox();
+      this.boxManager.createBox( 'tasks' );
     });
 
     // on ENTER, open dialog box for animals/person/point-of-interest
     this.input.keyboard.on( 'keydown_ENTER', () => {
-      // determine what box Player is colliding with
-      // then, pass what it is into loadBox()
-
-      this.talkBox.loadBox();
+      this.boxManager.createBox( 'dialog' );
     });
 
-    // restart update loop, if not pressing SPACE or SHIFT
+    // restart update loop, if not pressing SPACE or SHIFT or ENTER
     this.input.keyboard.on( 'keydown', function( e ) {
       if ( e.keyCode !== '32'&& e.code !== 'Space'
         && e.keyCode !== '16' && e.code !== 'Shift'
+        && e.keyCode !== '13' && e.code !== 'Enter'
       ) {
         gameConfig.pauseUpdateLoop = false;
       }
@@ -188,7 +181,7 @@ export default class Game extends Phaser.Scene {
 
     // ESC closes open dialog box
     this.input.keyboard.on('keydown_ESC', () => {
-      this.dialogBox.hideBox();
+      this.boxManager.hideBox();
     });
 
     // on animation complete, sets standing texture

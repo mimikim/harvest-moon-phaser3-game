@@ -357,7 +357,8 @@ export default class ImageLoader {
   spritesMisc() {
     this.scene.load.image( 'pixel', 'images/items/misc/pixel.png' );
     this.scene.load.image( 'close-btn', 'images/items/misc/close-btn.png' );
-    this.scene.load.image( 'scroll-btn', 'images/items/misc/arrow-down.png' );
+    this.scene.load.image( 'btn-status', 'images/items/misc/btn-status.png' );
+    this.scene.load.image( 'btn-tasks', 'images/items/misc/btn-tasks.png' );
 
     this.scene.load.image( 'chicken-statue', 'images/items/misc/chicken-statue.png' );
     this.scene.load.image( 'hay', 'images/items/misc/hay.png' );

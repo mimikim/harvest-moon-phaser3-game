@@ -1,15 +1,12 @@
 /**
- * Modal Box, returns list of Tasks/Animal Status OR dialog box
+ * displays Modal Box
  */
 
-import config from '../config';
-import gameConfig from '../config/game-config';
-import tasks from '../config/tasks';
-import dialogAnimals from '../config/dialog-animals';
-import dialogNPCs from '../config/dialog-npc';
+import config from '../../config';
+import gameConfig from '../../config/game-config';
 
-export default class DialogBox {
-  constructor( scene, type ) {
+export default class ModalBox {
+  constructor( scene ) {
     this.scene = scene;
 
     // box settings
@@ -18,15 +15,9 @@ export default class DialogBox {
       width: config.width - 40,
       x: 20,
       y: ( config.height - 320 ),
-      fill: 0xFFFFFF,
-      alpha: 0.8
+      fill: 0x000000,
+      alpha: 0.7
     };
-
-    // passed TYPE determines what kind of box to open,
-
-    if ( type === 'dialog' || type === 'tasks' ) {
-      gameConfig.taskMenuOpen = true;
-    }
 
     this.createBox();
   }
@@ -40,8 +31,8 @@ export default class DialogBox {
         alpha: this.boxConfig.alpha,
       },
       lineStyle: {
-        width: 5,
-        color: 0x000000,
+        width: 6,
+        color: 0xFFFFFF,
         alpha: 1,
       }
     } ).setScrollFactor( 0 );
@@ -49,14 +40,13 @@ export default class DialogBox {
     // box that will be a mask for the text
     this.scene.maskBox = this.scene.add.graphics( {
       fillStyle: {
-        color: 0x000000,
+        color: 0xFFFFFF,
         alpha: 1,
       }
     } ).setScrollFactor( 0 );
 
     // creating interactable elements
     this.createCloseBtn();
-    this.createScrollBtn();
     this.createTabs();
 
     // adding graphic to rounded rectangle
@@ -86,11 +76,6 @@ export default class DialogBox {
       0
     );
 
-    // grab text for box
-    let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Praesent semper feugiat nibh sed pulvinar proin gravida. Facilisis sed odio morbi quis commodo odio aenean sed. Id eu nisl nunc mi ipsum. Est ullamcorper eget nulla facilisi etiam. Potenti nullam ac tortor vitae purus faucibus. Aenean pharetra magna ac placerat vestibulum. At urna condimentum mattis pellentesque id. Purus gravida quis blandit turpis cursus in hac. Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.";
-
-    this.addText( text );
-
     // hide on game load
     this.hideBox();
   }
@@ -106,16 +91,6 @@ export default class DialogBox {
     }.bind( this ));
   }
 
-  createScrollBtn() {
-    this.scene.scrollBtn = this.scene.add.image( config.width - 50, config.height - 45, 'scroll-btn' ).setScrollFactor( 0 );
-    this.scene.scrollBtn.setInteractive( { useHandCursor: true  } ).setVisible( false );
-
-    this.scene.scrollBtn.on('pointerdown', function (pointer) {
-      console.log( 'clicked' );
-      console.log( pointer );
-    });
-  }
-
   addText( text ) {
     this.scene.textbox = this.scene.make.text({
       x: this.boxConfig.x,
@@ -123,7 +98,7 @@ export default class DialogBox {
       text: text,
       style: {
         font: '25px monospace',
-        fill: '#000000',
+        fill: '#FFFFFF',
         padding: { x: 20, y: 15 },
         wordWrap: { width: 700 }
       }
@@ -135,11 +110,12 @@ export default class DialogBox {
   }
 
   // displays popup box
-  loadBox() {
+  loadBox( text ) {
+    this.addText( text );
+
     this.scene.box.setVisible( true );
     this.scene.maskBox.setVisible( true );
     this.scene.closeBtn.setVisible( true );
-    this.scene.scrollBtn.setVisible( true );
   }
 
   // hides box
@@ -147,7 +123,6 @@ export default class DialogBox {
     this.scene.box.setVisible( false );
     this.scene.maskBox.setVisible( false );
     this.scene.closeBtn.setVisible( false );
-    this.scene.scrollBtn.setVisible( false );
   }
 
   // update text in box
