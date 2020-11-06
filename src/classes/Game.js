@@ -78,7 +78,13 @@ export default class Game extends Phaser.Scene {
   }
 
   // update loop
-  update() {
+  update( time, delta ) {
+    // if ( gameConfig.taskMenuOpen ) {
+    //   gameConfig.pauseUpdateLoop = true;
+    // } else {
+    //   gameConfig.pauseUpdateLoop = false;
+    // }
+
     if ( ! gameConfig.pauseUpdateLoop ) {
       // jack walking/bell animations
       this.animation_update_loop();
@@ -169,6 +175,11 @@ export default class Game extends Phaser.Scene {
       this.boxManager.createBox( 'dialog' );
     });
 
+    // ESC closes open dialog box
+    this.input.keyboard.on('keydown_ESC', () => {
+      this.boxManager.hideBox();
+    });
+
     // restart update loop, if not pressing SPACE or SHIFT or ENTER
     this.input.keyboard.on( 'keydown', function( e ) {
       if ( e.keyCode !== '32'&& e.code !== 'Space'
@@ -178,11 +189,6 @@ export default class Game extends Phaser.Scene {
         gameConfig.pauseUpdateLoop = false;
       }
     }.bind( this ) );
-
-    // ESC closes open dialog box
-    this.input.keyboard.on('keydown_ESC', () => {
-      this.boxManager.hideBox();
-    });
 
     // on animation complete, sets standing texture
     this.player.on( 'animationcomplete', ( animation, frame ) => {
@@ -234,7 +240,5 @@ export default class Game extends Phaser.Scene {
       return playerCoords.default;
     }
   }
-
-
 
 }

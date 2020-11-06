@@ -8,10 +8,17 @@ export default class ImageLoader {
     this.scene = scene;
     this.sceneName = scene.loadedScene;
 
+    this.loadFonts();
+
     this.loadBackground( this.sceneName );
     this.loadPeople();
     this.loadAnimals();
     this.loadItems();
+  }
+
+  // fonts
+  loadFonts() {
+    this.scene.load.script( 'webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' );
   }
 
   // loads images, based on passed scene name
@@ -357,6 +364,7 @@ export default class ImageLoader {
   spritesMisc() {
     this.scene.load.image( 'pixel', 'images/items/misc/pixel.png' );
     this.scene.load.image( 'close-btn', 'images/items/misc/close-btn.png' );
+    this.scene.load.image( 'scroll-btn', 'images/items/misc/arrow-down.png' );
     this.scene.load.image( 'btn-status', 'images/items/misc/btn-status.png' );
     this.scene.load.image( 'btn-tasks', 'images/items/misc/btn-tasks.png' );
 

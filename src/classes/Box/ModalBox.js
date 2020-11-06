@@ -47,6 +47,7 @@ export default class ModalBox {
 
     // creating interactable elements
     this.createCloseBtn();
+    this.createScrollBtn();
     this.createTabs();
 
     // adding graphic to rounded rectangle
@@ -82,13 +83,26 @@ export default class ModalBox {
 
   // creating Close button
   createCloseBtn() {
-    this.scene.closeBtn = this.scene.add.image( config.width - 50, config.height - 290, 'close-btn' ).setScrollFactor( 0 );
-    this.scene.closeBtn.setInteractive( { useHandCursor: true  } );
+    this.scene.closeBtn = this.scene.add.image( config.width - 50, config.height - 290, 'close-btn' )
+        .setScrollFactor( 0 )
+        .setInteractive( { useHandCursor: true  } );
 
-    this.scene.closeBtn.on('pointerdown', function (pointer) {
+    this.scene.closeBtn.on('pointerdown', function () {
       gameConfig.taskMenuOpen = false;
       this.hideBox();
     }.bind( this ));
+  }
+
+  createScrollBtn() {
+    this.scene.scrollBtn = this.scene.add.image( config.width - 50, config.height - 45, 'scroll-btn' )
+        .setScrollFactor( 0 )
+        .setInteractive( { useHandCursor: true  } )
+        .setVisible( false );
+
+    this.scene.scrollBtn.on('pointerdown', function (pointer) {
+      console.log( 'clicked' );
+      console.log( pointer );
+    });
   }
 
   addText( text ) {
@@ -97,7 +111,7 @@ export default class ModalBox {
       y: this.boxConfig.y,
       text: text,
       style: {
-        font: '25px monospace',
+        font: '30px monospace',
         fill: '#FFFFFF',
         padding: { x: 20, y: 15 },
         wordWrap: { width: 700 }
@@ -116,6 +130,7 @@ export default class ModalBox {
     this.scene.box.setVisible( true );
     this.scene.maskBox.setVisible( true );
     this.scene.closeBtn.setVisible( true );
+    // this.scene.scrollBtn.setVisible( true );
   }
 
   // hides box
@@ -123,6 +138,7 @@ export default class ModalBox {
     this.scene.box.setVisible( false );
     this.scene.maskBox.setVisible( false );
     this.scene.closeBtn.setVisible( false );
+    // this.scene.scrollBtn.setVisible( false );
   }
 
   // update text in box

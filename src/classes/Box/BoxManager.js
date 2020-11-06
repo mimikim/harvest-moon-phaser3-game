@@ -17,14 +17,12 @@ export default class BoxManager {
 
   // adds buttons to game
   setAssets() {
-    const btnX = 200;
-    const btnY = config.height - 100;
 
-    this.statusBtn = this.scene.add.image( btnX, btnY, 'btn-status' ).setScrollFactor( 0 );
+    this.statusBtn = this.scene.add.image( 167, 232, 'btn-status' ).setScrollFactor( 0 );
     this.statusBtn.setInteractive( { useHandCursor: true  } )
                   .setVisible( false );
 
-    this.taskBtn = this.scene.add.image( config.width - btnX, btnY, 'btn-tasks' ).setScrollFactor( 0 );
+    this.taskBtn = this.scene.add.image( 500, 232, 'btn-tasks' ).setScrollFactor( 0 );
     this.taskBtn.setInteractive( { useHandCursor: true  } )
                 .setVisible( false );
 
@@ -37,7 +35,6 @@ export default class BoxManager {
     });
 
     this.dialogBox = new ModalBox( this.scene );
-
   }
 
   /**
@@ -64,31 +61,6 @@ export default class BoxManager {
     }
   }
 
-  // loads buttons to view Tasks or Status
-  loadButtons() {
-    this.dialogBox.hideBox();
-    this.statusBtn.setVisible( true );
-    this.taskBtn.setVisible( true );
-  }
-
-  // Task box with 3 tabs
-  loadTaskBox() {
-    console.log('task box')
-  }
-
-  // Status box with date info & animal status
-  loadStatusBox() {
-    // check if Player is near anyone
-
-    // assemble current day and animal status info
-    console.log('show status');
-  }
-
-  hideBtns() {
-    this.statusBtn.setVisible( false );
-    this.taskBtn.setVisible( false );
-  }
-
   // Dialog box grabs dialog object,
   loadDialogBox() {
     this.hideBtns();
@@ -97,9 +69,37 @@ export default class BoxManager {
     // determine who Player is speaking to
 
     // grab text object
-    let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Praesent semper feugiat nibh sed pulvinar proin gravida. Facilisis sed odio morbi quis commodo odio aenean sed. Id eu nisl nunc mi ipsum. Est ullamcorper eget nulla facilisi etiam. Potenti nullam ac tortor vitae purus faucibus. Aenean pharetra magna ac placerat vestibulum. At urna condimentum mattis pellentesque id. Purus gravida quis blandit turpis cursus in hac. Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.Dui vivamus arcu felis bibendum. Facilisi morbi tempus iaculis urna id. Nisl tincidunt eget nullam non nisi est sit amet facilisis.";
+    let text = "I spotted a cave elf sneaking a peak at us! I think they like cows... :)";
 
     this.dialogBox.loadBox( text );
+  }
+
+  // loads buttons to view Tasks or Status
+  loadButtons() {
+    // this.dialogBox.hideBox();
+    this.dialogBox.loadBox( 'Check your tasks and status' );
+    this.statusBtn.setVisible( true );
+    this.taskBtn.setVisible( true );
+  }
+
+  // Task box with 3 tabs
+  loadTaskBox() {
+    console.log('task box');
+    this.dialogBox.loadBox( 'list of all active tasks' );
+  }
+
+  // Status box with date info & animal status
+  loadStatusBox() {
+    // check if Player is near anyone
+
+    // assemble current day and animal status info
+    console.log('show status');
+    this.dialogBox.loadBox( 'animal status and what day it is' );
+  }
+
+  hideBtns() {
+    this.statusBtn.setVisible( false );
+    this.taskBtn.setVisible( false );
   }
 
   // hides created Boxes
