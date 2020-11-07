@@ -22,22 +22,19 @@ export default class Preload extends Phaser.Scene {
 
     create() {
         this.add.image( config.width / 2, 100, 'text-harvestmoon' )
-            .setOrigin( 0.5 )
-            .setScale( 0.75 );
+            .setOrigin( 0.5 );
 
-        this.add.image( config.width / 2, 170, 'text-phaser3' )
-            .setOrigin( 0.5 )
-            .setScale( 0.6 );
+        this.add.image( config.width / 2, 180, 'text-phaser3' )
+            .setOrigin( 0.5 );
 
-        this.add.image( config.width / 2, config.height - 50, 'text-mimikim' )
-            .setOrigin( 0.5 )
-            .setScale( 0.5 );
+        this.add.image( config.width / 2, config.height - 100, 'text-mimikim' )
+            .setOrigin( 0.5 );
 
         this.add.image( config.width / 2, config.height / 2, 'cow-face' )
             .setOrigin( 0.5 )
-            .setScale( 1 );
+            .setScale( 2 );
 
-        this.add.text( config.width / 2, config.height / 2 + 100, 'Press ENTER to begin!', { font: '40px monospace' } )
+        this.add.text( config.width / 2, config.height / 2 + 150, 'Press ENTER to begin!', { font: '60px monospace' } )
             .setOrigin( 0.5 );
 
         // on ENTER, load Game scene

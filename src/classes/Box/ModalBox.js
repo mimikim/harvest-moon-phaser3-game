@@ -13,10 +13,10 @@ export default class ModalBox {
 
     // box settings
     this.boxConfig = {
-      height: 300,
+      height: 400,
       width: config.width - 40,
       x: 20,
-      y: ( config.height - 320 ),
+      y: ( config.height - 420 ), // 20px from the bottom
       fill: 0x000000,
       alpha: 0.7
     };
@@ -71,7 +71,7 @@ export default class ModalBox {
       this.boxConfig.x,
       this.boxConfig.y,
       this.boxConfig.width,
-      this.boxConfig.height - 40,
+      this.boxConfig.height - 20,
       0
     );
 
@@ -81,7 +81,7 @@ export default class ModalBox {
 
   // creating Close button
   createCloseBtn() {
-    this.btns.closeBtn = this.scene.add.image( config.width - 50, config.height - 290, 'close-btn' )
+    this.btns.closeBtn = this.scene.add.image( config.width - 50, config.height - 390, 'close-btn' )
         .setScrollFactor( 0 )
         .setInteractive( { useHandCursor: true  } );
 
@@ -109,9 +109,9 @@ export default class ModalBox {
       y: this.boxConfig.y,
       text: text,
       style: {
-        font: '30px monospace',
-        padding: { x: 20, y: 15 },
-        wordWrap: { width: 700 }
+        font: '55px monospace',
+        padding: { x: 25, y: 25 },
+        wordWrap: { width: 1220 },
       }
     }).setScrollFactor( 0 ).setVisible( false );
 

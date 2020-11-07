@@ -22,7 +22,7 @@ export default class BoxManager {
       name: 'statusBtn', // name of var
       key: 'btn-status', // key of image to add
       x: 167, // x position
-      y: 232, // y position
+      y: config.height - 468,
       cb: this.loadStatusBox // function to run on pointerdown event
     });
 
@@ -30,7 +30,7 @@ export default class BoxManager {
       name: 'statusBtnInactive',
       key: 'btn-status-inactive',
       x: 167,
-      y: 232,
+      y: config.height - 468,
       cb: this.loadStatusBox
     });
 
@@ -38,7 +38,7 @@ export default class BoxManager {
       name: 'taskBtn',
       key: 'btn-tasks',
       x: 500,
-      y: 232,
+      y: config.height - 468,
       cb: this.loadTaskBox
     });
 
@@ -46,7 +46,7 @@ export default class BoxManager {
       name: 'taskBtnInactive',
       key: 'btn-tasks-inactive',
       x: 500,
-      y: 232,
+      y: config.height - 468,
       cb: this.loadTaskBox
     });
 
@@ -147,6 +147,8 @@ export default class BoxManager {
   hideBtns() {
     this.btns.statusBtn.setVisible( false );
     this.btns.taskBtn.setVisible( false );
+    this.btns.taskBtnInactive.setVisible( false );
+    this.btns.statusBtnInactive.setVisible( false );
   }
 
   // hides created Boxes

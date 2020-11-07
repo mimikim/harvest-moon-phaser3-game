@@ -12,24 +12,28 @@ export default class Map {
     this.blockedLayerName = config.blockedLayerName; // blocked layer name in tileset
     this.tileSize = 20; // size of tile
 
-    // console.log( 'in Map.js', config );
+    console.log( 'in Map.js', config );
     // console.log( 'in Map.js', this.scene.cache.tilemap.get( this.key ).data );
 
     this.createMap();
   }
 
   createMap() {
+
     // create tile map
     this.tilemap = this.scene.make.tilemap( { key: this.key } );
 
     // add tileset image to map
     this.tiles = this.tilemap.addTilesetImage( this.tileSetName, this.imgKey, this.tileSize, this.tileSize, 0, 0 );
 
-    // create background layer
-    this.backgroundLayer = this.tilemap.createStaticLayer( this.bgLayerName, this.tiles, 0, 0 );
-
-    // create blocked layer
-    this.blockedLayer = this.tilemap.createStaticLayer( this.blockedLayerName, this.tiles, 0, 0 );
+    // create background and blocked layer as Static or Dynamic (dynamic loads larger maps faster)
+    if ( this.key === 'map-town' || this.key === 'map-mountains' ) {
+      this.backgroundLayer = this.tilemap.createDynamicLayer( this.bgLayerName, this.tiles, 0, 0 );
+      this.blockedLayer = this.tilemap.createDynamicLayer( this.blockedLayerName, this.tiles, 0, 0 );
+    } else {
+      this.backgroundLayer = this.tilemap.createStaticLayer( this.bgLayerName, this.tiles, 0, 0 );
+      this.blockedLayer = this.tilemap.createStaticLayer( this.blockedLayerName, this.tiles, 0, 0 );
+    }
 
     // player cannot pass through this layer
     this.blockedLayer.setCollisionByExclusion( -1 );
