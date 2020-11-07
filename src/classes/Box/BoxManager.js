@@ -17,20 +17,19 @@ export default class BoxManager {
 
   // adds buttons to game
   setAssets() {
-
-    this.statusBtn = this.scene.add.image( 167, 232, 'btn-status' ).setScrollFactor( 0 );
-    this.statusBtn.setInteractive( { useHandCursor: true  } )
+    this.scene.statusBtn = this.scene.add.image( 167, 232, 'btn-status' ).setScrollFactor( 0 );
+    this.scene.statusBtn.setInteractive( { useHandCursor: true  } )
                   .setVisible( false );
 
-    this.taskBtn = this.scene.add.image( 500, 232, 'btn-tasks' ).setScrollFactor( 0 );
-    this.taskBtn.setInteractive( { useHandCursor: true  } )
+    this.scene.taskBtn = this.scene.add.image( 500, 232, 'btn-tasks' ).setScrollFactor( 0 );
+    this.scene.taskBtn.setInteractive( { useHandCursor: true  } )
                 .setVisible( false );
 
-    this.statusBtn.on( 'pointerdown', () => {
+    this.scene.statusBtn.on( 'pointerdown', () => {
       this.loadStatusBox();
     });
 
-    this.taskBtn.on( 'pointerdown', () => {
+    this.scene.taskBtn.on( 'pointerdown', () => {
       this.loadTaskBox();
     });
 
@@ -78,8 +77,8 @@ export default class BoxManager {
   loadButtons() {
     // this.dialogBox.hideBox();
     this.dialogBox.loadBox( 'Check your tasks and status' );
-    this.statusBtn.setVisible( true );
-    this.taskBtn.setVisible( true );
+    this.scene.statusBtn.setVisible( true );
+    this.scene.taskBtn.setVisible( true );
   }
 
   // Task box with 3 tabs
@@ -98,8 +97,8 @@ export default class BoxManager {
   }
 
   hideBtns() {
-    this.statusBtn.setVisible( false );
-    this.taskBtn.setVisible( false );
+    this.scene.statusBtn.setVisible( false );
+    this.scene.taskBtn.setVisible( false );
   }
 
   // hides created Boxes

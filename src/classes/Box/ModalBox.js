@@ -139,6 +139,9 @@ export default class ModalBox {
     this.scene.maskBox.setVisible( false );
     this.scene.closeBtn.setVisible( false );
     // this.scene.scrollBtn.setVisible( false );
+
+    this.scene.statusBtn.setVisible( false );
+    this.scene.taskBtn.setVisible( false );
   }
 
   // update text in box
