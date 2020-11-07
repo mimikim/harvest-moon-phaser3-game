@@ -12,7 +12,6 @@ import Map from '../classes/Map';
 import ObjectLoader from '../classes/ObjectLoader';
 import Player from '../sprites/Player';
 import ImageLoader from '../classes/ImageLoader';
-import config from "../config";
 import BoxManager from '../classes/Box/BoxManager';
 
 export default class Game extends Phaser.Scene {
@@ -23,17 +22,18 @@ export default class Game extends Phaser.Scene {
   init() {
     // console.log( gameConfig );
 
-    // default vars
-    this.pressedCursor = 'down'; // keeps track of what cursor was pressed previously
-    this.actionAnimation = ''; // stores action animation to play on SPACE press
-
     // containers
-    this._ANIMS = {};
+    this._ANIMS = {
+      pressedCursor: 'down', // keeps track of what cursor was pressed previously
+      actionAnimation: '', // stores action animation to play on SPACE press
+    };
+
     this._BTNS = {};
     this._MAP = {};
     this._MODAL = {};
     this._PLAYER = {};
     this._SPRITES = {};
+    this._UTILITY = {};
   }
 
   preload() {
@@ -81,7 +81,7 @@ export default class Game extends Phaser.Scene {
     this.createEventListeners();  // event listeners
 
     // handles modal box for tasks and status
-    this.boxManager = new BoxManager( this );
+    this._UTILITY.boxManager = new BoxManager( this );
 
     console.log( this );
   }
@@ -111,22 +111,22 @@ export default class Game extends Phaser.Scene {
   animation_update_loop() {
     if ( this.cursors.down.isDown ) {
       this._PLAYER.body.setVelocityY( gameConfig.playerSpeed );
-      this.pressedCursor = 'down';
+      this._ANIMS.pressedCursor = 'down';
       this.playAnim( 'walking-down' );
     }
     else if ( this.cursors.up.isDown ) {
       this._PLAYER.body.setVelocityY(-gameConfig.playerSpeed );
-      this.pressedCursor = 'up';
+      this._ANIMS.pressedCursor = 'up';
       this.playAnim( 'walking-up' );
     }
     else if ( this.cursors.left.isDown ) {
       this._PLAYER.body.setVelocityX( -gameConfig.playerSpeed );
-      this.pressedCursor = 'left';
+      this._ANIMS.pressedCursor = 'left';
       this.playAnim( 'walking-left' );
     }
     else if ( this.cursors.right.isDown ) {
       this._PLAYER.body.setVelocityX( gameConfig.playerSpeed );
-      this.pressedCursor = 'right';
+      this._ANIMS.pressedCursor = 'right';
       this.playAnim( 'walking-right' );
     }
     else {
@@ -143,11 +143,11 @@ export default class Game extends Phaser.Scene {
 
   // manages chicken/item generation
   createObjectLoader() {
-    this.ObjectLoader = new ObjectLoader( {
+    this._UTILITY.ObjectLoader = new ObjectLoader( {
       scene: this,
       objectLayers: this._MAP.tilemap.objects
     } );
-    this.ObjectLoader.setup();
+    this._UTILITY.ObjectLoader.setup();
   }
 
   createEventListeners() {
@@ -156,7 +156,7 @@ export default class Game extends Phaser.Scene {
       gameConfig.pauseUpdateLoop = true;
       this.stopPlayerAnim();
 
-      switch( this.pressedCursor ) {
+      switch( this._ANIMS.pressedCursor ) {
         case 'down':
           this.playAnim( 'ring-cowbell-down' );
           break;
@@ -176,17 +176,17 @@ export default class Game extends Phaser.Scene {
 
     // on SHIFT, display Animal Status / Active Tasks buttons
     this.input.keyboard.on( 'keydown_SHIFT', () => {
-      this.boxManager.createBox( 'tasks' );
+      this._UTILITY.boxManager.createBox( 'tasks' );
     });
 
     // on ENTER, open dialog box for animals/person/point-of-interest
     this.input.keyboard.on( 'keydown_ENTER', () => {
-      this.boxManager.createBox( 'dialog' );
+      this._UTILITY.boxManager.createBox( 'dialog' );
     });
 
     // ESC closes open dialog box
     this.input.keyboard.on('keydown_ESC', () => {
-      this.boxManager.hideBox();
+      this._UTILITY.boxManager.hideBox();
     });
 
     // restart update loop, if not pressing SPACE or SHIFT or ENTER
@@ -201,7 +201,7 @@ export default class Game extends Phaser.Scene {
 
     // on animation complete, sets standing texture
     this._PLAYER.on( 'animationcomplete', ( animation, frame ) => {
-      switch( this.pressedCursor ) {
+      switch( this._ANIMS.pressedCursor ) {
         case 'down':
           this._PLAYER.setTexture( 'jack-standing', 0 );
           break;

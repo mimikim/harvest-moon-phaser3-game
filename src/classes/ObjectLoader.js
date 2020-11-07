@@ -15,7 +15,6 @@ export default class ObjectLoader {
 
     // physics groups
     this.exitGroup = this.scene.physics.add.group();
-
   }
 
   setup() {
@@ -90,7 +89,7 @@ export default class ObjectLoader {
     gameConfig.loadedScene = sceneName;
 
     // what was the last cursor direction?
-    gameConfig.previousData.direction = this.scene.pressedCursor;
+    gameConfig.previousData.direction = this.scene._ANIMS.pressedCursor;
 
     // store player's x/y coords
     gameConfig.previousData.coords = {

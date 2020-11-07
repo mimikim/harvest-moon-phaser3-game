@@ -75,7 +75,7 @@ Phaser scene object properties:
     - textbox
     - box
 
-- MANAGERS: managers and loaders
+- UTILITY: managers and loaders
     - BoxManager
     - ImageLoader
     - ObjectLoader
