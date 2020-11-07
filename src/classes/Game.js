@@ -62,7 +62,7 @@ export default class Game extends Phaser.Scene {
     const playerFrame = this.setPlayerDirection();
 
     // create Jack
-    this.player = new Player({
+    this._PLAYER = new Player({
       scene: this,
       x: playerCoords.x,
       y: playerCoords.y,
@@ -72,7 +72,7 @@ export default class Game extends Phaser.Scene {
 
     // limit camera to size of map
     this.cameras.main.setBounds( 0, 0, mapVars.mapBounds.width, mapVars.mapBounds.height );
-    this.cameras.main.startFollow( this.player ); // camera follows player
+    this.cameras.main.startFollow( this._PLAYER ); // camera follows player
 
     // enable cursor keys
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -102,30 +102,30 @@ export default class Game extends Phaser.Scene {
 
   // plays animation of passed key
   playAnim( animKey ) {
-    if( ! this.player.anims.isPlaying || this.player.anims.currentAnim.key !== animKey ) {
-      this.player.anims.play( animKey );
+    if( ! this._PLAYER.anims.isPlaying || this._PLAYER.anims.currentAnim.key !== animKey ) {
+      this._PLAYER.anims.play( animKey );
     }
   }
 
   // animation update loop
   animation_update_loop() {
     if ( this.cursors.down.isDown ) {
-      this.player.body.setVelocityY( gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityY( gameConfig.playerSpeed );
       this.pressedCursor = 'down';
       this.playAnim( 'walking-down' );
     }
     else if ( this.cursors.up.isDown ) {
-      this.player.body.setVelocityY(-gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityY(-gameConfig.playerSpeed );
       this.pressedCursor = 'up';
       this.playAnim( 'walking-up' );
     }
     else if ( this.cursors.left.isDown ) {
-      this.player.body.setVelocityX( -gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityX( -gameConfig.playerSpeed );
       this.pressedCursor = 'left';
       this.playAnim( 'walking-left' );
     }
     else if ( this.cursors.right.isDown ) {
-      this.player.body.setVelocityX( gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityX( gameConfig.playerSpeed );
       this.pressedCursor = 'right';
       this.playAnim( 'walking-right' );
     }
@@ -136,9 +136,9 @@ export default class Game extends Phaser.Scene {
 
   // stops animation & velocity on player
   stopPlayerAnim() {
-    this.player.body.setVelocityY( 0 );
-    this.player.body.setVelocityX( 0 );
-    this.player.anims.stop();
+    this._PLAYER.body.setVelocityY( 0 );
+    this._PLAYER.body.setVelocityX( 0 );
+    this._PLAYER.anims.stop();
   }
 
   // manages chicken/item generation
@@ -170,7 +170,7 @@ export default class Game extends Phaser.Scene {
           this.playAnim( 'ring-cowbell-right' );
           break;
         default:
-          this.player.setTexture( 'jack-standing', 0 );
+          this._PLAYER.setTexture( 'jack-standing', 0 );
       }
     } );
 
@@ -200,22 +200,22 @@ export default class Game extends Phaser.Scene {
     }.bind( this ) );
 
     // on animation complete, sets standing texture
-    this.player.on( 'animationcomplete', ( animation, frame ) => {
+    this._PLAYER.on( 'animationcomplete', ( animation, frame ) => {
       switch( this.pressedCursor ) {
         case 'down':
-          this.player.setTexture( 'jack-standing', 0 );
+          this._PLAYER.setTexture( 'jack-standing', 0 );
           break;
         case 'up':
-          this.player.setTexture( 'jack-standing', 1 );
+          this._PLAYER.setTexture( 'jack-standing', 1 );
           break;
         case 'left':
-          this.player.setTexture( 'jack-standing', 2 );
+          this._PLAYER.setTexture( 'jack-standing', 2 );
           break;
         case 'right':
-          this.player.setTexture( 'jack-standing', 3 );
+          this._PLAYER.setTexture( 'jack-standing', 3 );
           break;
         default:
-          this.player.setTexture( 'jack-standing', 0 );
+          this._PLAYER.setTexture( 'jack-standing', 0 );
       }
     }, this);
 

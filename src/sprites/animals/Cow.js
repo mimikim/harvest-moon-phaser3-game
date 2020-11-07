@@ -19,7 +19,7 @@ export default class Cow extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing( this );
 
     // adding collision between this Sprite and the Player
-    this.scene.physics.add.collider( this, this.scene.player );
+    this.scene.physics.add.collider( this, this.scene._PLAYER );
 
     // set immovable if another object collides with this Sprite
     // otherwise, Sprite will move if the Player runs into it

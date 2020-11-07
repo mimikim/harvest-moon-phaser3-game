@@ -9,6 +9,8 @@ import Chicken from '../sprites/animals/Chicken';
 export default class ObjectLoader {
   constructor( config ) {
     this.scene = config.scene;
+    this.player = this.scene._PLAYER;
+    this.sprites = this.scene._SPRITES;
     this.mapData = config.objectLayers; // array of Object layers created in Tiled
 
     // physics groups
@@ -37,15 +39,12 @@ export default class ObjectLoader {
       if ( layer.name === 'animals' ) {
         layer.objects.forEach( obj => {
           if ( obj.properties[1].value === 'cow' ) {
-            this.scene[ obj.properties[0].value ] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' } );
+            this.sprites[ obj.properties[0].value ] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' } );
           }
           else if ( obj.properties[1].value === 'chicken' ) {
-            this.scene[ obj.properties[0].value ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' } );
+            this.sprites[ obj.properties[0].value ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' } );
           }
-          else if ( obj.properties[1].value === 'dog' ) {
-
-          }
-
+          else if ( obj.properties[1].value === 'dog' ) {}
         });
       }
 
@@ -69,13 +68,11 @@ export default class ObjectLoader {
 
   // set collisions
   setCollision( ) {
-
-
     // for each Exit inside exitGroup, set overlap event
     // https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Arcade.ArcadePhysics.html#overlap__anchor
     this.exitGroup.children.entries.forEach( exit => {
       this.scene.physics.add.overlap(
-        this.scene.player,
+        this.player,
         exit,
         function() {
           this.newScene( exit.data.list[0].value );
@@ -97,8 +94,8 @@ export default class ObjectLoader {
 
     // store player's x/y coords
     gameConfig.previousData.coords = {
-      x: this.scene.player.x,
-      y:  this.scene.player.y
+      x: this.player.x,
+      y: this.player.y
     };
 
     // restart scene
