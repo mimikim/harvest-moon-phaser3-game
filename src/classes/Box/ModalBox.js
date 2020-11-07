@@ -31,24 +31,20 @@ export default class ModalBox {
         alpha: this.boxConfig.alpha,
       },
       lineStyle: {
-        width: 6,
-        // color: 0xFFFFFF,
-        alpha: 1,
+        width: 6
       }
     } ).setScrollFactor( 0 );
 
     // box that will be a mask for the text
     this.scene.maskBox = this.scene.add.graphics( {
       fillStyle: {
-        // color: 0xFFFFFF,
-        alpha: 1,
+        alpha: 1
       }
     } ).setScrollFactor( 0 );
 
     // creating interactable elements
     this.createCloseBtn();
     this.createScrollBtn();
-    this.createTabs();
 
     // adding graphic to rounded rectangle
     this.scene.box.fillRoundedRect(
@@ -112,7 +108,6 @@ export default class ModalBox {
       text: text,
       style: {
         font: '30px monospace',
-        fill: '#FFFFFF',
         padding: { x: 20, y: 15 },
         wordWrap: { width: 700 }
       }
@@ -126,10 +121,10 @@ export default class ModalBox {
   // displays popup box
   loadBox( text ) {
     this.addText( text );
-
     this.scene.box.setVisible( true );
     this.scene.maskBox.setVisible( true );
     this.scene.closeBtn.setVisible( true );
+    console.log( this.scene);
     // this.scene.scrollBtn.setVisible( true );
   }
 
@@ -145,11 +140,5 @@ export default class ModalBox {
     this.scene.taskBtn.setVisible( false );
     this.scene.taskBtnInactive.setVisible( false );
   }
-
-  // update text in box
-  updateText() {}
-
-  // creates tabs, each of which
-  createTabs() {}
 
 }
