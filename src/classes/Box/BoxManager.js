@@ -12,28 +12,59 @@ import gameConfig from "../../config/game-config";
 export default class BoxManager {
   constructor( scene ) {
     this.scene = scene;
-    this.setAssets();
+    this.loadAssets();
   }
 
   // adds buttons to game
-  setAssets() {
-    this.scene.statusBtn = this.scene.add.image( 167, 232, 'btn-status' ).setScrollFactor( 0 );
-    this.scene.statusBtn.setInteractive( { useHandCursor: true  } )
-                  .setVisible( false );
-
-    this.scene.taskBtn = this.scene.add.image( 500, 232, 'btn-tasks' ).setScrollFactor( 0 );
-    this.scene.taskBtn.setInteractive( { useHandCursor: true  } )
-                .setVisible( false );
-
-    this.scene.statusBtn.on( 'pointerdown', () => {
-      this.loadStatusBox();
+  loadAssets() {
+    this.setAsset({
+      name: 'statusBtn', // name of var
+      key: 'btn-status', // key of image to add
+      x: 167, // x position
+      y: 232, // y position
+      cb: this.loadStatusBox // function to run on pointerdown event
     });
 
-    this.scene.taskBtn.on( 'pointerdown', () => {
-      this.loadTaskBox();
+    this.setAsset({
+      name: 'statusBtnInactive',
+      key: 'btn-status-inactive',
+      x: 167,
+      y: 232,
+      cb: this.loadStatusBox
+    });
+
+    this.setAsset({
+      name: 'taskBtn',
+      key: 'btn-tasks',
+      x: 500,
+      y: 232,
+      cb: this.loadTaskBox
+    });
+
+    this.setAsset({
+      name: 'taskBtnInactive',
+      key: 'btn-tasks-inactive',
+      x: 500,
+      y: 232,
+      cb: this.loadTaskBox
     });
 
     this.dialogBox = new ModalBox( this.scene );
+  }
+
+  /**
+   * helper function for adding assets, adds image, sets event listener
+   * @param config : object config options for
+   */
+  setAsset( config ) {
+    this.scene[config.name] = this.scene.add.image( config.x, config.y, config.key )
+      .setScrollFactor( 0 )
+      .setInteractive( { useHandCursor: true  } )
+      .setVisible( false );
+
+    this.scene[config.name].on( 'pointerdown', () => {
+      config.cb( this );
+    });
   }
 
   /**
@@ -73,27 +104,43 @@ export default class BoxManager {
     this.dialogBox.loadBox( text );
   }
 
-  // loads buttons to view Tasks or Status
+  // loads buttons to view Tasks or Status, by default see Status first
   loadButtons() {
     // this.dialogBox.hideBox();
-    this.dialogBox.loadBox( 'Check your tasks and status' );
+    this.loadStatusBox( this );
     this.scene.statusBtn.setVisible( true );
-    this.scene.taskBtn.setVisible( true );
+    this.scene.taskBtnInactive.setVisible( true );
   }
 
-  // Task box with 3 tabs
-  loadTaskBox() {
-    console.log('task box');
-    this.dialogBox.loadBox( 'list of all active tasks' );
+  /**
+   * Task box with list of active tasks to complete
+   * @param instance : this class instance, since we are calling this func in setAsset()
+   */
+  loadTaskBox( instance ) {
+    instance.scene.statusBtn.setVisible( false );
+    instance.scene.statusBtnInactive.setVisible( true );
+
+    instance.scene.taskBtnInactive.setVisible( false );
+    instance.scene.taskBtn.setVisible( true );
+
+    instance.dialogBox.loadBox( 'list of all active tasks' );
   }
 
-  // Status box with date info & animal status
-  loadStatusBox() {
-    // check if Player is near anyone
+  /**
+   * Status box with date info & animal status
+   * @param instance : this class instance, since we are calling this func in setAsset()
+   */
+  loadStatusBox( instance ) {
+    instance.scene.taskBtn.setVisible( false );
+    instance.scene.taskBtnInactive.setVisible( true );
+
+    instance.scene.statusBtnInactive.setVisible( false );
+    instance.scene.statusBtn.setVisible( true );
 
     // assemble current day and animal status info
-    console.log('show status');
-    this.dialogBox.loadBox( 'animal status and what day it is' );
+    const text = `Day: ${gameConfig.day}<br>Animal Status`;
+
+    instance.dialogBox.loadBox( text );
   }
 
   hideBtns() {

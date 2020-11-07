@@ -32,7 +32,7 @@ export default class ModalBox {
       },
       lineStyle: {
         width: 6,
-        color: 0xFFFFFF,
+        // color: 0xFFFFFF,
         alpha: 1,
       }
     } ).setScrollFactor( 0 );
@@ -40,7 +40,7 @@ export default class ModalBox {
     // box that will be a mask for the text
     this.scene.maskBox = this.scene.add.graphics( {
       fillStyle: {
-        color: 0xFFFFFF,
+        // color: 0xFFFFFF,
         alpha: 1,
       }
     } ).setScrollFactor( 0 );
@@ -141,7 +141,9 @@ export default class ModalBox {
     // this.scene.scrollBtn.setVisible( false );
 
     this.scene.statusBtn.setVisible( false );
+    this.scene.statusBtnInactive.setVisible( false );
     this.scene.taskBtn.setVisible( false );
+    this.scene.taskBtnInactive.setVisible( false );
   }
 
   // update text in box

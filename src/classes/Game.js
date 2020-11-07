@@ -74,6 +74,7 @@ export default class Game extends Phaser.Scene {
     this.createObjectLoader();  // generate items
     this.createEventListeners();  // event listeners
 
+    // handles modal box for tasks and status
     this.boxManager = new BoxManager( this );
   }
 
@@ -85,8 +86,8 @@ export default class Game extends Phaser.Scene {
     //   gameConfig.pauseUpdateLoop = false;
     // }
 
+    // do walking anims if not paused
     if ( ! gameConfig.pauseUpdateLoop ) {
-      // jack walking/bell animations
       this.animation_update_loop();
     }
   }
