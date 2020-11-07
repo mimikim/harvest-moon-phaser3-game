@@ -12,10 +12,7 @@ dialog box tabs:
 
 Phaser scene object properties:
 
-- MAP: everything about the Map/Scene
-    - map
-    - mapBounds
-    - mapVars
+- MAP: contains Map object
 
 - ANIMS: stores animations, maybe split this and put into each sprite obj
     - animationAction: stores action animation to play on SPACE press
@@ -64,7 +61,7 @@ Phaser scene object properties:
             - dog
             - horse
 
-- BTNs: stores all interactable buttons
+- BTNS: stores all interactable buttons
     - taskBtn
     - taskBtnInactive
     - statusBtn
@@ -72,7 +69,7 @@ Phaser scene object properties:
     - closeBtn
     - scrollBtn
 
-- BOX: everything that manages the box
+- MODAL: everything that manages the box
     - mask
     - maskBox
     - textbox

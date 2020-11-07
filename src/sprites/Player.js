@@ -31,7 +31,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.setAnimations();
 
     // adding collision between player and tiled Blocked layer
-    this.scene.physics.add.collider( this, this.scene.map.blockedLayer );
+    this.scene.physics.add.collider( this, this.scene._MAP.blockedLayer );
 
     // restrain player to game bounds, so cannot go off screen
     this.body.setCollideWorldBounds( true );

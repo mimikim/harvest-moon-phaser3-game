@@ -62,7 +62,7 @@ export default class ObjectLoader {
    * @param keyName : string key of image asset
    */
   addToPhysicsGroup( obj, physicsGroup, layerName, keyName ) {
-    var newObj = this.scene.map.tilemap.createFromObjects( layerName, obj.id, { key: keyName } );
+    var newObj = this.scene._MAP.tilemap.createFromObjects( layerName, obj.id, { key: keyName } );
     newObj[0].setOrigin( 0.5, -0.5 );
     physicsGroup.add( newObj[0] );
   }

@@ -8,6 +8,8 @@ import gameConfig from '../../config/game-config';
 export default class ModalBox {
   constructor( scene ) {
     this.scene = scene;
+    this.btns = this.scene._BTNS;
+    this.modal = this.scene._MODAL;
 
     // box settings
     this.boxConfig = {
@@ -25,7 +27,7 @@ export default class ModalBox {
   createBox() {
     // creating graphics
     // this box will be the rounded menu box
-    this.scene.box = this.scene.add.graphics( {
+    this.modal.box = this.scene.add.graphics( {
       fillStyle: {
         color: this.boxConfig.fill,
         alpha: this.boxConfig.alpha,
@@ -36,7 +38,7 @@ export default class ModalBox {
     } ).setScrollFactor( 0 );
 
     // box that will be a mask for the text
-    this.scene.maskBox = this.scene.add.graphics( {
+    this.modal.maskBox = this.scene.add.graphics( {
       fillStyle: {
         alpha: 1
       }
@@ -47,7 +49,7 @@ export default class ModalBox {
     this.createScrollBtn();
 
     // adding graphic to rounded rectangle
-    this.scene.box.fillRoundedRect(
+    this.modal.box.fillRoundedRect(
       this.boxConfig.x,
       this.boxConfig.y,
       this.boxConfig.width,
@@ -56,7 +58,7 @@ export default class ModalBox {
     );
 
     // stroke for rounded rectangle
-    this.scene.box.strokeRoundedRect(
+    this.modal.box.strokeRoundedRect(
       this.boxConfig.x,
       this.boxConfig.y,
       this.boxConfig.width,
@@ -65,7 +67,7 @@ export default class ModalBox {
     );
 
     // rectangle for text mask
-    this.scene.maskBox.fillRoundedRect(
+    this.modal.maskBox.fillRoundedRect(
       this.boxConfig.x,
       this.boxConfig.y,
       this.boxConfig.width,
@@ -79,30 +81,30 @@ export default class ModalBox {
 
   // creating Close button
   createCloseBtn() {
-    this.scene.closeBtn = this.scene.add.image( config.width - 50, config.height - 290, 'close-btn' )
+    this.btns.closeBtn = this.scene.add.image( config.width - 50, config.height - 290, 'close-btn' )
         .setScrollFactor( 0 )
         .setInteractive( { useHandCursor: true  } );
 
-    this.scene.closeBtn.on('pointerdown', function () {
+    this.btns.closeBtn.on('pointerdown', function () {
       gameConfig.taskMenuOpen = false;
       this.hideBox();
     }.bind( this ));
   }
 
   createScrollBtn() {
-    this.scene.scrollBtn = this.scene.add.image( config.width - 50, config.height - 45, 'scroll-btn' )
+    this.btns.scrollBtn = this.scene.add.image( config.width - 50, config.height - 45, 'scroll-btn' )
         .setScrollFactor( 0 )
         .setInteractive( { useHandCursor: true  } )
         .setVisible( false );
 
-    this.scene.scrollBtn.on('pointerdown', function (pointer) {
+    this.btns.scrollBtn.on('pointerdown', function (pointer) {
       console.log( 'clicked' );
       console.log( pointer );
     });
   }
 
   addText( text ) {
-    this.scene.textbox = this.scene.make.text({
+    this.modal.textbox = this.scene.make.text({
       x: this.boxConfig.x,
       y: this.boxConfig.y,
       text: text,
@@ -114,31 +116,30 @@ export default class ModalBox {
     }).setScrollFactor( 0 ).setVisible( false );
 
     // create a mask on the box, will only show text
-    this.scene.mask = this.scene.textbox.createBitmapMask();
-    this.scene.maskBox.setMask( this.scene.mask );
+    this.modal.mask = this.modal.textbox.createBitmapMask();
+    this.modal.maskBox.setMask( this.modal.mask );
   }
 
   // displays popup box
   loadBox( text ) {
     this.addText( text );
-    this.scene.box.setVisible( true );
-    this.scene.maskBox.setVisible( true );
-    this.scene.closeBtn.setVisible( true );
-    console.log( this.scene);
-    // this.scene.scrollBtn.setVisible( true );
+    this.modal.box.setVisible( true );
+    this.modal.maskBox.setVisible( true );
+    this.btns.closeBtn.setVisible( true );
+    // this.btns.scrollBtn.setVisible( true );
   }
 
   // hides box
   hideBox() {
-    this.scene.box.setVisible( false );
-    this.scene.maskBox.setVisible( false );
-    this.scene.closeBtn.setVisible( false );
+    this.modal.box.setVisible( false );
+    this.modal.maskBox.setVisible( false );
+    this.btns.closeBtn.setVisible( false );
     // this.scene.scrollBtn.setVisible( false );
 
-    this.scene.statusBtn.setVisible( false );
-    this.scene.statusBtnInactive.setVisible( false );
-    this.scene.taskBtn.setVisible( false );
-    this.scene.taskBtnInactive.setVisible( false );
+    this.btns.statusBtn.setVisible( false );
+    this.btns.statusBtnInactive.setVisible( false );
+    this.btns.taskBtn.setVisible( false );
+    this.btns.taskBtnInactive.setVisible( false );
   }
 
 }

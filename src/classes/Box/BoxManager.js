@@ -12,6 +12,7 @@ import gameConfig from "../../config/game-config";
 export default class BoxManager {
   constructor( scene ) {
     this.scene = scene;
+    this.btns = this.scene._BTNS;
     this.loadAssets();
   }
 
@@ -57,12 +58,12 @@ export default class BoxManager {
    * @param config : object config options for
    */
   setAsset( config ) {
-    this.scene[config.name] = this.scene.add.image( config.x, config.y, config.key )
+    this.btns[config.name] = this.scene.add.image( config.x, config.y, config.key )
       .setScrollFactor( 0 )
       .setInteractive( { useHandCursor: true  } )
       .setVisible( false );
 
-    this.scene[config.name].on( 'pointerdown', () => {
+    this.btns[config.name].on( 'pointerdown', () => {
       config.cb( this );
     });
   }
@@ -108,8 +109,8 @@ export default class BoxManager {
   loadButtons() {
     // this.dialogBox.hideBox();
     this.loadStatusBox( this );
-    this.scene.statusBtn.setVisible( true );
-    this.scene.taskBtnInactive.setVisible( true );
+    this.btns.statusBtn.setVisible( true );
+    this.btns.taskBtnInactive.setVisible( true );
   }
 
   /**
@@ -117,11 +118,11 @@ export default class BoxManager {
    * @param instance : this class instance, since we are calling this func in setAsset()
    */
   loadTaskBox( instance ) {
-    instance.scene.statusBtn.setVisible( false );
-    instance.scene.statusBtnInactive.setVisible( true );
+    instance.btns.statusBtn.setVisible( false );
+    instance.btns.statusBtnInactive.setVisible( true );
 
-    instance.scene.taskBtnInactive.setVisible( false );
-    instance.scene.taskBtn.setVisible( true );
+    instance.btns.taskBtnInactive.setVisible( false );
+    instance.btns.taskBtn.setVisible( true );
 
     instance.dialogBox.loadBox( 'list of all active tasks' );
   }
@@ -131,11 +132,11 @@ export default class BoxManager {
    * @param instance : this class instance, since we are calling this func in setAsset()
    */
   loadStatusBox( instance ) {
-    instance.scene.taskBtn.setVisible( false );
-    instance.scene.taskBtnInactive.setVisible( true );
+    instance.btns.taskBtn.setVisible( false );
+    instance.btns.taskBtnInactive.setVisible( true );
 
-    instance.scene.statusBtnInactive.setVisible( false );
-    instance.scene.statusBtn.setVisible( true );
+    instance.btns.statusBtnInactive.setVisible( false );
+    instance.btns.statusBtn.setVisible( true );
 
     // assemble current day and animal status info
     const text = `Day: ${gameConfig.day}<br>Animal Status`;
@@ -144,8 +145,8 @@ export default class BoxManager {
   }
 
   hideBtns() {
-    this.scene.statusBtn.setVisible( false );
-    this.scene.taskBtn.setVisible( false );
+    this.btns.statusBtn.setVisible( false );
+    this.btns.taskBtn.setVisible( false );
   }
 
   // hides created Boxes

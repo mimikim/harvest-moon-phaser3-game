@@ -22,14 +22,18 @@ export default class Game extends Phaser.Scene {
 
   init() {
     // console.log( gameConfig );
-    this.loadedScene = gameConfig.loadedScene;
-    this.playerSpeed = gameConfig.playerSpeed;
-    this.mapVars = gameConfig.map[this.loadedScene];
-    this.mapBounds = this.mapVars.mapBounds;
 
     // default vars
     this.pressedCursor = 'down'; // keeps track of what cursor was pressed previously
     this.actionAnimation = ''; // stores action animation to play on SPACE press
+
+    // containers
+    this._ANIMS = {};
+    this._BTNS = {};
+    this._MAP = {};
+    this._MODAL = {};
+    this._PLAYER = {};
+    this._SPRITES = {};
   }
 
   preload() {
@@ -37,19 +41,21 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
+    const mapVars = gameConfig.map[gameConfig.loadedScene];
+
     // create map
-    this.map = new Map({
+    this._MAP = new Map({
       scene: this,
-      key: this.mapVars.key,
-      imgKey: this.mapVars.imgKey,
-      tileSetName: this.mapVars.tileSetName,
+      key: mapVars.key,
+      imgKey: mapVars.imgKey,
+      tileSetName: mapVars.tileSetName,
       bgLayerName: 'background', // all tilesets have a "background" layer
       blockedLayerName: 'blocked' // similarly, they all have "blocked"
     });
 
     // world bounds
-    this.physics.world.bounds.width = this.mapBounds.width;
-    this.physics.world.bounds.height = this.mapBounds.height;
+    this.physics.world.bounds.width = mapVars.mapBounds.width;
+    this.physics.world.bounds.height = mapVars.mapBounds.height;
 
     // based on previous map ( gameConfig.previousData.scene ), determine appropriate x/y value and frame
     const playerCoords = this.setPlayerCoords();
@@ -65,8 +71,8 @@ export default class Game extends Phaser.Scene {
     });
 
     // limit camera to size of map
-    this.cameras.main.setBounds(0, 0, this.mapBounds.width, this.mapBounds.height);
-    this.cameras.main.startFollow(this.player); // camera follows player
+    this.cameras.main.setBounds( 0, 0, mapVars.mapBounds.width, mapVars.mapBounds.height );
+    this.cameras.main.startFollow( this.player ); // camera follows player
 
     // enable cursor keys
     this.cursors = this.input.keyboard.createCursorKeys();
@@ -76,6 +82,8 @@ export default class Game extends Phaser.Scene {
 
     // handles modal box for tasks and status
     this.boxManager = new BoxManager( this );
+
+    console.log( this );
   }
 
   // update loop
@@ -102,22 +110,22 @@ export default class Game extends Phaser.Scene {
   // animation update loop
   animation_update_loop() {
     if ( this.cursors.down.isDown ) {
-      this.player.body.setVelocityY( this.playerSpeed );
+      this.player.body.setVelocityY( gameConfig.playerSpeed );
       this.pressedCursor = 'down';
       this.playAnim( 'walking-down' );
     }
     else if ( this.cursors.up.isDown ) {
-      this.player.body.setVelocityY(-this.playerSpeed );
+      this.player.body.setVelocityY(-gameConfig.playerSpeed );
       this.pressedCursor = 'up';
       this.playAnim( 'walking-up' );
     }
     else if ( this.cursors.left.isDown ) {
-      this.player.body.setVelocityX( -this.playerSpeed );
+      this.player.body.setVelocityX( -gameConfig.playerSpeed );
       this.pressedCursor = 'left';
       this.playAnim( 'walking-left' );
     }
     else if ( this.cursors.right.isDown ) {
-      this.player.body.setVelocityX( this.playerSpeed );
+      this.player.body.setVelocityX( gameConfig.playerSpeed );
       this.pressedCursor = 'right';
       this.playAnim( 'walking-right' );
     }
@@ -137,7 +145,7 @@ export default class Game extends Phaser.Scene {
   createObjectLoader() {
     this.ObjectLoader = new ObjectLoader( {
       scene: this,
-      objectLayers: this.map.tilemap.objects
+      objectLayers: this._MAP.tilemap.objects
     } );
     this.ObjectLoader.setup();
   }
@@ -232,7 +240,7 @@ export default class Game extends Phaser.Scene {
   // returns player's loading X/Y coords, based on previous Scene
   setPlayerCoords() {
     const prevScene = gameConfig.previousData.scene;
-    const playerCoords = this.mapVars.playerStartPos;
+    const playerCoords = gameConfig.map[ gameConfig.loadedScene ].playerStartPos;
 
     if ( prevScene.length > 0 && Object.keys( playerCoords ).length > 1 ) {
       return playerCoords[ prevScene ];

@@ -1,3 +1,5 @@
+import gameConfig from "../config/game-config";
+
 /**
  * Loads all images, based on passed Scene
  * called in Game scene's preload()
@@ -6,19 +8,11 @@
 export default class ImageLoader {
   constructor( scene ) {
     this.scene = scene;
-    this.sceneName = scene.loadedScene;
-
-    this.loadFonts();
-
+    this.sceneName = gameConfig.loadedScene;
     this.loadBackground( this.sceneName );
     this.loadPeople();
     this.loadAnimals();
     this.loadItems();
-  }
-
-  // fonts
-  loadFonts() {
-    this.scene.load.script( 'webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' );
   }
 
   // loads images, based on passed scene name
