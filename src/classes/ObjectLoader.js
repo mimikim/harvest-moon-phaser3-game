@@ -43,7 +43,10 @@ export default class ObjectLoader {
           else if ( obj.properties[1].value === 'chicken' ) {
             this.sprites[ obj.properties[0].value ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' } );
           }
+          else if ( obj.properties[1].value === 'calf' ) {}
+          else if ( obj.properties[1].value === 'chick' ) {}
           else if ( obj.properties[1].value === 'dog' ) {}
+          else if ( obj.properties[1].value === 'horse' ) {}
         });
       }
 

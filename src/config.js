@@ -1,3 +1,4 @@
+import Preload from './classes/Preload';
 import Game from "./classes/Game";
 
 const config = {
@@ -11,6 +12,7 @@ const config = {
     },
   },
   scene: [
+    Preload,
     Game
   ],
   pixelArt: true,

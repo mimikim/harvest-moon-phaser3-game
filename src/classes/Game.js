@@ -83,7 +83,7 @@ export default class Game extends Phaser.Scene {
     // handles modal box for tasks and status
     this._UTILITY.boxManager = new BoxManager( this );
 
-    console.log( this );
+    // console.log( this );
   }
 
   // update loop
