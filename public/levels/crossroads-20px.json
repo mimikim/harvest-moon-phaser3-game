@@ -40,7 +40,7 @@
          "name":"exits",
          "objects":[
                 {
-                 "height":22.3574711215998,
+                 "height":22.3575,
                  "id":7,
                  "name":"",
                  "properties":[
@@ -52,12 +52,12 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":238.479691963731,
-                 "x":520.432244441684,
+                 "width":238.48,
+                 "x":520.432,
                  "y":0
                 }, 
                 {
-                 "height":327.90957645013,
+                 "height":327.91,
                  "id":8,
                  "name":"",
                  "properties":[
@@ -69,12 +69,12 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":23.5995528505776,
-                 "x":1.24208172897777,
-                 "y":460.812321450751
+                 "width":23.5996,
+                 "x":1.24208,
+                 "y":460.812
                 }, 
                 {
-                 "height":344.056638926841,
+                 "height":344.057,
                  "id":9,
                  "name":"",
                  "properties":[
@@ -86,9 +86,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":24.8416345795554,
-                 "x":1254.50254626754,
-                 "y":460.812321450751
+                 "width":24.8416,
+                 "x":1254.5,
+                 "y":460.812
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -110,7 +110,7 @@
          "imageheight":1120,
          "imagewidth":1280,
          "margin":0,
-         "name":"crossroads-tilesheet-20px",
+         "name":"crossroads-tileset-20px",
          "spacing":0,
          "tilecount":3584,
          "tileheight":20,

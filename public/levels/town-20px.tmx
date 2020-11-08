@@ -3,7 +3,9 @@
  <editorsettings>
   <export target="town-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="town-tilesheet-20px.tsx"/>
+ <tileset firstgid="1" name="town-tileset-20px" tilewidth="20" tileheight="20" tilecount="47616" columns="192">
+  <image source="../images/background/town.png" width="3840" height="4960"/>
+ </tileset>
  <layer id="1" name="background" width="192" height="248" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

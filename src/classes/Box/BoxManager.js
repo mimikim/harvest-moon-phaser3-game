@@ -96,7 +96,6 @@ export default class BoxManager {
   loadDialogBox() {
     this.hideBtns();
 
-    console.log('creating dialog box');
     // determine who Player is speaking to
 
     // grab text object

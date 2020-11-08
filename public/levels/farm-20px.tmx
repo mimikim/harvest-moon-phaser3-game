@@ -3,7 +3,9 @@
  <editorsettings>
   <export target="farm-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="farm-tilesheet-20px.tsx"/>
+ <tileset firstgid="1" name="farm-tileset-20px" tilewidth="20" tileheight="20" tilecount="21312" columns="148">
+  <image source="../images/background/farm.png" width="2960" height="2880"/>
+ </tileset>
  <tileset firstgid="21313" source="sprites-sheet.tsx"/>
  <layer id="1" name="background" width="148" height="144" locked="1">
   <data encoding="csv">

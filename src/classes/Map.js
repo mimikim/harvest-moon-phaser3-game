@@ -12,7 +12,7 @@ export default class Map {
     this.blockedLayerName = config.blockedLayerName; // blocked layer name in tileset
     this.tileSize = 20; // size of tile
 
-    console.log( 'in Map.js', config );
+    // console.log( 'in Map.js', config );
     // console.log( 'in Map.js', this.scene.cache.tilemap.get( this.key ).data );
 
     this.createMap();

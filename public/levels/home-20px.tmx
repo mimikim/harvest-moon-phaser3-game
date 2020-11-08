@@ -3,7 +3,9 @@
  <editorsettings>
   <export target="home-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="home-tilesheet-20px.tsx"/>
+ <tileset firstgid="1" name="home-tileset-20px" tilewidth="20" tileheight="20" tilecount="5408" columns="104">
+  <image source="../images/background/home.png" width="2080" height="1040"/>
+ </tileset>
  <layer id="1" name="background" width="104" height="52">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

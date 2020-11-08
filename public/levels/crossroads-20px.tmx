@@ -3,7 +3,9 @@
  <editorsettings>
   <export target="crossroads-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" source="crossroads-tilesheet-20px.tsx"/>
+ <tileset firstgid="1" name="crossroads-tileset-20px" tilewidth="20" tileheight="20" tilecount="3584" columns="64">
+  <image source="../images/background/crossroads.png" width="1280" height="1120"/>
+ </tileset>
  <layer id="1" name="background" width="64" height="56" locked="1">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,27,28,29,30,31,32,33,34,35,36,37,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

@@ -32,7 +32,7 @@
          "name":"exits",
          "objects":[
                 {
-                 "height":22.7210760701626,
+                 "height":22.7211,
                  "id":1,
                  "name":"",
                  "properties":[
@@ -44,9 +44,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":129.055712078524,
-                 "x":576.206489139326,
-                 "y":1782.24120694356
+                 "width":129.056,
+                 "x":576.206,
+                 "y":1782.24
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -68,7 +68,7 @@
          "imageheight":1840,
          "imagewidth":1280,
          "margin":0,
-         "name":"cow-shed-tilesheet-20px",
+         "name":"cow-shed-tileset-20px",
          "spacing":0,
          "tilecount":5888,
          "tileheight":20,

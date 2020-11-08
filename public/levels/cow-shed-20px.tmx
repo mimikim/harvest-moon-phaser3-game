@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.3.5" orientation="orthogonal" renderorder="right-down" width="64" height="92" tilewidth="20" tileheight="20" infinite="0" nextlayerid="4" nextobjectid="2">
- <tileset firstgid="1" name="cow-shed" tilewidth="20" tileheight="20" tilecount="5888" columns="64">
+ <tileset firstgid="1" name="cow-shed-tileset-20px" tilewidth="20" tileheight="20" tilecount="5888" columns="64">
   <image source="../images/background/cow-shed.png" width="1280" height="1840"/>
  </tileset>
  <layer id="1" name="background" width="64" height="92">

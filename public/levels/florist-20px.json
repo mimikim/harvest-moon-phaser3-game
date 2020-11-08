@@ -57,7 +57,7 @@
                  "y":966.865
                 }, 
                 {
-                 "height":18.3971484419915,
+                 "height":18.3971,
                  "id":3,
                  "name":"",
                  "properties":[
@@ -69,9 +69,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":70.1391284350925,
-                 "x":486.37461193515,
-                 "y":126.480395538691
+                 "width":70.1391,
+                 "x":486.375,
+                 "y":126.48
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -93,7 +93,7 @@
          "imageheight":1040,
          "imagewidth":1280,
          "margin":0,
-         "name":"florist-tilesheet-20px",
+         "name":"florist-tileset-20px",
          "spacing":0,
          "tilecount":3328,
          "tileheight":20,

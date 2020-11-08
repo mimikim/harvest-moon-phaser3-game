@@ -3,7 +3,7 @@
  <editorsettings>
   <export target="florist-20px.json" format="json"/>
  </editorsettings>
- <tileset firstgid="1" name="florist-tilesheet-20px" tilewidth="20" tileheight="20" tilecount="3328" columns="64">
+ <tileset firstgid="1" name="florist-tileset-20px" tilewidth="20" tileheight="20" tilecount="3328" columns="64">
   <image source="../images/background/building-florist.png" width="1280" height="1040"/>
  </tileset>
  <layer id="1" name="background" width="64" height="52" locked="1">

@@ -14,7 +14,7 @@ let gameConfig = {
   },
 
   // player default movement speed
-  playerSpeed: 300,
+  playerSpeed: 500,
 
   // map vars, for loading new Map class
   map: {
@@ -22,7 +22,7 @@ let gameConfig = {
     sceneFarm: {
       key: 'map-farm', // tilemap key in preload
       imgKey: 'farm',
-      tileSetName: 'farm-tilesheet-20px',
+      tileSetName: 'farm-tileset-20px',
       // height/width of scene maps
       mapBounds: {
         height: 2880,
@@ -74,7 +74,7 @@ let gameConfig = {
     sceneToolShed: {
       key: 'map-toolshed',
       imgKey: 'toolshed',
-      tileSetName: 'tool-shed-tilesheet-20px',
+      tileSetName: 'tool-shed-tileset-20px',
       mapBounds: {
         height: 1120,
         width: 1280
@@ -97,7 +97,7 @@ let gameConfig = {
     sceneCoop: {
       key: 'map-coop',
       imgKey: 'coop',
-      tileSetName: 'coop-tilesheet-20px',
+      tileSetName: 'coop-tileset-20px',
       mapBounds: {
         height: 1120,
         width: 1280
@@ -112,7 +112,7 @@ let gameConfig = {
     sceneCowShed: {
       key: 'map-cowshed',
       imgKey: 'cowshed',
-      tileSetName: 'cow-shed-tilesheet-20px',
+      tileSetName: 'cow-shed-tileset-20px',
       mapBounds: {
         height: 1840,
         width: 1280
@@ -156,7 +156,7 @@ let gameConfig = {
     sceneCrossRoads: {
       key: 'map-crossroads',
       imgKey: 'crossroads',
-      tileSetName: 'crossroads-tilesheet-20px',
+      tileSetName: 'crossroads-tileset-20px',
       mapBounds: {
         height: 1120,
         width: 1280
@@ -206,7 +206,7 @@ let gameConfig = {
     sceneTown: {
       key: 'map-town',
       imgKey: 'town',
-      tileSetName: 'town-tilesheet-20px',
+      tileSetName: 'town-tileset-20px',
       mapBounds: {
         height: 4960,
         width: 3840
@@ -257,7 +257,7 @@ let gameConfig = {
     sceneFlorist: {
       key: 'map-florist',
       imgKey: 'florist',
-      tileSetName: 'florist-tilesheet-20px',
+      tileSetName: 'florist-tileset-20px',
       mapBounds: {
         height: 1040,
         width: 1280
