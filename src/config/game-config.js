@@ -14,7 +14,7 @@ let gameConfig = {
   },
 
   // player default movement speed
-  playerSpeed: 550,
+  playerSpeed: 325,
 
   // map vars, for loading new Map class
   map: {

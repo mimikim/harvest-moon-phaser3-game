@@ -12,7 +12,7 @@ const config = {
     },
   },
   scene: [
-      //Preload,
+      Preload,
     Game
   ],
   pixelArt: true,
