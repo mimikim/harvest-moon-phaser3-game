@@ -21,133 +21,133 @@ export default class ImageLoader {
       // farm backgrounds
       case 'sceneFarm': {
         this.scene.load.image( 'farm', 'images/background/farm.png' );
-        this.scene.load.tilemapTiledJSON( 'map-farm', 'levels/farm-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-farm', 'levels/homestead/farm-20px.json' );
         break;
       }
       case 'sceneHome': {
         this.scene.load.image( 'home', 'images/background/home.png' );
-        this.scene.load.tilemapTiledJSON( 'map-home', 'levels/home-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-home', 'levels/homestead/home-20px.json' );
         break;
       }
       case 'sceneCoop': {
         this.scene.load.image( 'coop', 'images/background/chicken-coop.png' );
-        this.scene.load.tilemapTiledJSON( 'map-coop', 'levels/coop-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-coop', 'levels/homestead/coop-20px.json' );
         break;
       }
       case 'sceneCowShed': {
         this.scene.load.image( 'cowshed', 'images/background/cow-shed.png' );
-        this.scene.load.tilemapTiledJSON( 'map-cowshed', 'levels/cow-shed-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-cowshed', 'levels/homestead/cow-shed-20px.json' );
         break;
       }
       case 'sceneCave1': {
         this.scene.load.image( 'cave1', 'images/background/cave1.png' );
-        this.scene.load.tilemapTiledJSON( 'map-cave1', 'levels/cave1-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-cave1', 'levels/homestead/cave1-20px.json' );
         break;
       }
       case 'sceneToolShed': {
         this.scene.load.image( 'toolshed', 'images/background/tool-shed.png' );
-        this.scene.load.tilemapTiledJSON( 'map-toolshed', 'levels/tool-shed-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-toolshed', 'levels/homestead/tool-shed-20px.json' );
         break;
       }
 
       // mountains
       case 'sceneCrossRoads': {
         this.scene.load.image( 'crossroads', 'images/background/crossroads.png' );
-        this.scene.load.tilemapTiledJSON( 'map-crossroads', 'levels/crossroads-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-crossroads', 'levels/mountains/crossroads-20px.json' );
         break;
       }
       case 'sceneMountains': {
         this.scene.load.image( 'mountains', 'images/background/mountains.png' );
-        this.scene.load.tilemapTiledJSON( 'map-mountains', 'levels/mountain-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-mountains', 'levels/mountains/mountain-20px.json' );
         break;
       }
       case 'sceneCliff': {
         this.scene.load.image( 'cliff', 'images/background/cliff.png' );
-        // this.scene.load.tilemapTiledJSON( 'map-cliff', 'levels/cliff-20px.json' );
+        // this.scene.load.tilemapTiledJSON( 'map-cliff', 'levels/mountains/cliff-20px.json' );
         break;
       }
       case 'sceneCave2': {
         this.scene.load.image( 'cave2', 'images/background/cave2.png' );
-        // this.scene.load.tilemapTiledJSON( 'map-cave2', 'levels/cave2-20px.json' );
+        // this.scene.load.tilemapTiledJSON( 'map-cave2', 'levels/mountains/cave2-20px.json' );
         break;
       }
 
       // town
       case 'sceneTown': {
         this.scene.load.image( 'town', 'images/background/town.png' );
-        this.scene.load.tilemapTiledJSON( 'map-town', 'levels/town-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-town', 'levels/town/town-20px.json' );
         break;
       }
       case 'sceneBar': {
         this.scene.load.image( 'bar', 'images/background/building-bar.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bar', 'levels/bar-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bar', 'levels/town/bar-20px.json' );
         break;
       }
       case 'sceneRestaurant': {
          this.scene.load.image( 'restaurant', 'images/background/building-restaurant.png' );
-         this.scene.load.tilemapTiledJSON( 'map-restaurant', 'levels/restaurant-20px.json' );
+         this.scene.load.tilemapTiledJSON( 'map-restaurant', 'levels/town/restaurant-20px.json' );
         break;
       }
       case 'sceneToolShop': {
         this.scene.load.image( 'toolshop', 'images/background/building-tools.png' );
-        this.scene.load.tilemapTiledJSON( 'map-toolshop', 'levels/tools-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-toolshop', 'levels/town/tools-20px.json' );
         break;
       }
       case 'sceneFortuneTeller': {
         this.scene.load.image( 'fortuneteller', 'images/background/building-fortuneteller.png' );
-        this.scene.load.tilemapTiledJSON( 'map-fortuneteller', 'levels/fortuneteller-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-fortuneteller', 'levels/town/fortuneteller-20px.json' );
         break;
       }
       case 'sceneFlorist': {
         this.scene.load.image( 'florist', 'images/background/building-florist.png' );
-        this.scene.load.tilemapTiledJSON( 'map-florist', 'levels/florist-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-florist', 'levels/town/florist-20px.json' );
         break;
       }
       case 'sceneChurch': {
         this.scene.load.image( 'church', 'images/background/building-church.png' );
-        this.scene.load.tilemapTiledJSON( 'map-church', 'levels/church-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-church', 'levels/town/church-20px.json' );
         break;
       }
       case 'sceneManor': {
         this.scene.load.image( 'manor', 'images/background/building-manor.png' );
-        this.scene.load.tilemapTiledJSON( 'map-manor', 'levels/manor-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-manor', 'levels/town/manor-20px.json' );
         break;
       }
       case 'sceneAnimalShop': {
         this.scene.load.image( 'animal-shop', 'images/background/building-animal-shop.png' );
-        this.scene.load.tilemapTiledJSON( 'map-animal-shop', 'levels/animal-shop-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-animal-shop', 'levels/town/animal-shop-20px.json' );
         break;
       }
 
       // town bedrooms
       case 'sceneBedroomBar': {
         this.scene.load.image( 'bedroom-bar', 'images/background/bedroom-bar.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bedroom-bar', 'levels/bedroom-bar-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-bar', 'levels/town/bedroom-bar-20px.json' );
         break;
       }
       case 'sceneBedroomManor': {
         this.scene.load.image( 'bedroom-manor', 'images/background/bedroom-manor.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bedroom-manor', 'levels/bedroom-manor-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-manor', 'levels/town/bedroom-manor-20px.json' );
         break;
       }
       case 'sceneManorHallway': {
         this.scene.load.image( 'manor-hallway', 'images/background/building-manor-hallway.png' );
-        this.scene.load.tilemapTiledJSON( 'map-manor-hallway', 'levels/manor-hallway-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-manor-hallway', 'levels/town/manor-hallway-20px.json' );
         break;
       }
       case 'sceneBedroomRestaurant': {
         this.scene.load.image( 'bedroom-restaurant', 'images/background/bedroom-restaurant.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bedroom-restaurant', 'levels/bedroom-restaurant-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-restaurant', 'levels/town/bedroom-restaurant-20px.json' );
         break;
       }
       case 'sceneBedroomTools': {
         this.scene.load.image( 'bedroom-tools', 'images/background/bedroom-tools.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bedroom-tools', 'levels/bedroom-tools-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-tools', 'levels/town/bedroom-tools-20px.json' );
         break;
       }
       case 'sceneBedroomFlorist': {
         this.scene.load.image( 'bedroom-florist', 'images/background/bedroom-florist.png' );
-        this.scene.load.tilemapTiledJSON( 'map-bedroom-florist', 'levels/bedroom-florist-20px.json' );
+        this.scene.load.tilemapTiledJSON( 'map-bedroom-florist', 'levels/town/bedroom-florist-20px.json' );
         break;
       }
       default:

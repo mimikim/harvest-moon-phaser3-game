@@ -59,7 +59,7 @@ let gameConfig = {
     sceneHome: {
       key: 'map-home',
       imgKey: 'home',
-      tileSetName: 'home',
+      tileSetName: 'home-tileset-20px',
       mapBounds: {
         height: 1040,
         width: 2080
