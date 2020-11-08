@@ -183,7 +183,7 @@ let gameConfig = {
     sceneMountains: {
       key: 'map-mountains',
       imgKey: 'mountains',
-      tileSetName: 'mountain-tileset-20px',
+      tileSetName: 'mountains-tileset-20px',
       mapBounds: {
         height: 3700,
         width: 3840
@@ -192,6 +192,14 @@ let gameConfig = {
         sceneCrossRoads: {
           x: 1700,
           y: 3550
+        },
+        sceneMountainHouse: {
+          x: 2000,
+          y: 3000
+        },
+        sceneCliff: {
+          x: 1500,
+          y: 300
         },
         default: {
           x: 1700,
@@ -252,7 +260,9 @@ let gameConfig = {
           x: 3770,
           y: 2095
         }
-      }
+      },
+      chunks: true,
+
     },
     sceneFlorist: {
       key: 'map-florist',

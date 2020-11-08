@@ -57,8 +57,8 @@ export default class ImageLoader {
         break;
       }
       case 'sceneMountains': {
-        this.scene.load.image( 'mountains', 'images/background/mountains.png' );
-        this.scene.load.tilemapTiledJSON( 'map-mountains', 'levels/mountains/mountain-20px.json' );
+        this.scene.load.image( 'mountains', 'images/background/mountains-bare.png' );
+        this.scene.load.tilemapTiledJSON( 'map-mountains', 'levels/mountains/mountains-20px.json' );
         break;
       }
       case 'sceneCliff': {
@@ -71,11 +71,17 @@ export default class ImageLoader {
         // this.scene.load.tilemapTiledJSON( 'map-cave2', 'levels/mountains/cave2-20px.json' );
         break;
       }
+      case 'sceneMountainHouse': {
+        break;
+      }
 
       // town
       case 'sceneTown': {
         this.scene.load.image( 'town', 'images/background/town.png' );
         this.scene.load.tilemapTiledJSON( 'map-town', 'levels/town/town-20px.json' );
+
+        // chunks
+        this.scene.load.json( 'map-town-master', 'levels/town/town/master.json');
         break;
       }
       case 'sceneBar': {

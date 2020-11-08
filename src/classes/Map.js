@@ -26,17 +26,14 @@ export default class Map {
     // add tileset image to map
     this.tiles = this.tilemap.addTilesetImage( this.tileSetName, this.imgKey, this.tileSize, this.tileSize, 0, 0 );
 
-    // create background and blocked layer as Static or Dynamic (dynamic loads larger maps faster)
-    if ( this.key === 'map-town' || this.key === 'map-mountains' ) {
-      this.backgroundLayer = this.tilemap.createDynamicLayer( this.bgLayerName, this.tiles, 0, 0 );
-      this.blockedLayer = this.tilemap.createDynamicLayer( this.blockedLayerName, this.tiles, 0, 0 );
-    } else {
-      this.backgroundLayer = this.tilemap.createStaticLayer( this.bgLayerName, this.tiles, 0, 0 );
-      this.blockedLayer = this.tilemap.createStaticLayer( this.blockedLayerName, this.tiles, 0, 0 );
-    }
+    this.backgroundLayer = this.tilemap.createStaticLayer( this.bgLayerName, this.tiles, 0, 0 );
+    this.blockedLayer = this.tilemap.createStaticLayer( this.blockedLayerName, this.tiles, 0, 0 );
 
     // player cannot pass through this layer
     this.blockedLayer.setCollisionByExclusion( -1 );
   }
+
+  // handle chunks
+
 
 }
