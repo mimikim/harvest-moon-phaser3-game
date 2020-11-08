@@ -212,8 +212,8 @@ let gameConfig = {
       imgKey: 'mountain-home',
       tileSetName: 'mountain-home-tileset-20px',
       mapBounds: {
-        height: 1280,
-        width: 1120
+        height: 1120,
+        width: 1280
       },
       playerStartPos: {
         sceneMountains: {

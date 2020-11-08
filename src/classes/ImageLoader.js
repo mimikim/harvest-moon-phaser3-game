@@ -81,9 +81,6 @@ export default class ImageLoader {
       case 'sceneTown': {
         this.scene.load.image( 'town', 'images/background/town.png' );
         this.scene.load.tilemapTiledJSON( 'map-town', 'levels/town/town-20px.json' );
-
-        // chunks
-        this.scene.load.json( 'map-town-master', 'levels/town/town/master.json');
         break;
       }
       case 'sceneBar': {

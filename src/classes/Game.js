@@ -39,13 +39,13 @@ export default class Game extends Phaser.Scene {
   preload() {
     new ImageLoader( this );
 
-    if ( gameConfig.map[gameConfig.loadedScene].chunks !== undefined ) {
-      this.cache.tilemap.events.on('add',function( cache, key ) {
-        console.log(cache);
-        console.log(key);
-        // this.displayChunk( key );
-      });
-    }
+    // if ( gameConfig.map[gameConfig.loadedScene].chunks !== undefined ) {
+    //   this.cache.tilemap.events.on('add',function( cache, key ) {
+    //     console.log(cache);
+    //     console.log(key);
+    //     // this.displayChunk( key );
+    //   });
+    // }
   }
 
   create() {
