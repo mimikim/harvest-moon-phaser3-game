@@ -33,7 +33,4 @@ export default class Map {
     this.blockedLayer.setCollisionByExclusion( -1 );
   }
 
-  // handle chunks
-
-
 }

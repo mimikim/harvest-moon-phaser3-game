@@ -3,34 +3,9 @@
  * https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Sprite.html
  */
 
-export default class Cow extends Phaser.GameObjects.Sprite {
-  constructor( config ) {
-    super(config.scene, config.x, config.y, config.key, config.frame);
+import Sprite from '../Sprite';
 
-    this.scene = config.scene;
-    this.init();
-  }
-
-  init() {
-    // adding sprite to scene
-    this.scene.add.existing( this );
-
-    // adding physics, this sprite is a dynamic body
-    this.scene.physics.add.existing( this );
-
-    // adding collision between this Sprite and the Player
-    this.scene.physics.add.collider( this, this.scene._PLAYER );
-
-    // set immovable if another object collides with this Sprite
-    // otherwise, Sprite will move if the Player runs into it
-    this.body.setImmovable( true );
-
-    // fix origin
-    this.setOrigin( 0, 1 );
-
-    // sets animations
-    this.setAnimations();
-  }
+export default class Cow extends Sprite {
 
   setAnimations() {
     // cow eating (front)
@@ -111,6 +86,5 @@ export default class Cow extends Phaser.GameObjects.Sprite {
       });
     }
   }
-
 
 }

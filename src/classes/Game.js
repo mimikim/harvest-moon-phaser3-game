@@ -38,14 +38,6 @@ export default class Game extends Phaser.Scene {
 
   preload() {
     new ImageLoader( this );
-
-    // if ( gameConfig.map[gameConfig.loadedScene].chunks !== undefined ) {
-    //   this.cache.tilemap.events.on('add',function( cache, key ) {
-    //     console.log(cache);
-    //     console.log(key);
-    //     // this.displayChunk( key );
-    //   });
-    // }
   }
 
   create() {
@@ -260,10 +252,6 @@ export default class Game extends Phaser.Scene {
       // else, no previous scene exists
       return playerCoords.default;
     }
-  }
-
-  displayChunk( key ) {
-    console.log( key );
   }
 
 }

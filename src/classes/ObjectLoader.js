@@ -15,6 +15,7 @@ export default class ObjectLoader {
 
     // physics groups
     this.exitGroup = this.scene.physics.add.group();
+    // this.interactiveGroup = this.scene.physics.add.group(); // interactive items
   }
 
   setup() {
@@ -37,16 +38,19 @@ export default class ObjectLoader {
       // for animals
       if ( layer.name === 'animals' ) {
         layer.objects.forEach( obj => {
-          if ( obj.properties[1].value === 'cow' ) {
-            this.sprites[ obj.properties[0].value ] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' } );
+          let type = obj.properties[1].value;
+          let name = obj.properties[0].value;
+
+          if ( type === 'cow' ) {
+            this.sprites[ name ] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' }, name );
           }
-          else if ( obj.properties[1].value === 'chicken' ) {
-            this.sprites[ obj.properties[0].value ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' } );
+          else if ( type === 'chicken' ) {
+            this.sprites[ name ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' }, name );
           }
-          else if ( obj.properties[1].value === 'calf' ) {}
-          else if ( obj.properties[1].value === 'chick' ) {}
-          else if ( obj.properties[1].value === 'dog' ) {}
-          else if ( obj.properties[1].value === 'horse' ) {}
+          else if ( type === 'calf' ) {}
+          else if ( type === 'chick' ) {}
+          else if ( type === 'dog' ) {}
+          else if ( type === 'horse' ) {}
         });
       }
 

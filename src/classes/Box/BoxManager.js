@@ -98,6 +98,7 @@ export default class BoxManager {
 
     // determine who Player is speaking to
 
+
     // grab text object
     let text = "I spotted a cave elf sneaking a peak at us! I think they like cows... :)";
 
