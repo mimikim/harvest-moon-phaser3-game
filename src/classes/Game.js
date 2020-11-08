@@ -111,21 +111,25 @@ export default class Game extends Phaser.Scene {
   animation_update_loop() {
     if ( this.cursors.down.isDown ) {
       this._PLAYER.body.setVelocityY( gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityX( 0 );
       this._ANIMS.pressedCursor = 'down';
       this.playAnim( 'walking-down' );
     }
     else if ( this.cursors.up.isDown ) {
       this._PLAYER.body.setVelocityY(-gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityX( 0 );
       this._ANIMS.pressedCursor = 'up';
       this.playAnim( 'walking-up' );
     }
     else if ( this.cursors.left.isDown ) {
       this._PLAYER.body.setVelocityX( -gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityY( 0 );
       this._ANIMS.pressedCursor = 'left';
       this.playAnim( 'walking-left' );
     }
     else if ( this.cursors.right.isDown ) {
       this._PLAYER.body.setVelocityX( gameConfig.playerSpeed );
+      this._PLAYER.body.setVelocityY( 0 );
       this._ANIMS.pressedCursor = 'right';
       this.playAnim( 'walking-right' );
     }

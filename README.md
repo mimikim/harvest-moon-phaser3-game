@@ -93,8 +93,8 @@ This game concept has grown from a simple exercise to something more substantial
 
 So, obviously I love Harvest Moon because I have clearly spent an incredible amount of time turning these sprites into spritesheets.
 
-Some character assets came from [The Spriters Resource](https://www.spriters-resource.com/snes/harvestmoon/), but many of them aren't proportioned equally, so I had to take time to re-draw the sprites to make sure each pixel in each sprite was the correct size. The backgrounds or other items, such as the food items, nature items, and misc, come from directly ripping them with an emulator. I use ZSNES.
+Some character assets came from [The Spriters Resource](https://www.spriters-resource.com/snes/harvestmoon/), but many of them are not proportioned equally, so I had to take time to re-draw the sprites to make sure each pixel in each sprite was the correct size. The backgrounds or other items, such as the food items, nature items, and misc, come from directly ripping them with an emulator. I use ZSNES.
 
-The tilemaps are all my own work, spending hours in [Tiled](https://www.mapeditor.org/) to create each map and layer.
+The tilemaps are all my own work, spending hours in [Tiled](https://www.mapeditor.org/) to create each map and layer. The tilesets could be done much more efficiently but that would mean needing to figure out how certain textures repeat, such as the ground/grass in the mountains or the ground on the farm. Presently, my concern is towards building out the game. On completion, I can circle back.
 
 Please feel free to use these spritesheets in your own project! :slightly_smiling_face:
