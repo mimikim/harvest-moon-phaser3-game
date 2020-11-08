@@ -14,7 +14,7 @@ let gameConfig = {
   },
 
   // player default movement speed
-  playerSpeed: 325,
+  playerSpeed: 550,
 
   // map vars, for loading new Map class
   map: {
@@ -185,7 +185,7 @@ let gameConfig = {
       imgKey: 'mountains',
       tileSetName: 'mountains-tileset-20px',
       mapBounds: {
-        height: 3700,
+        height: 3680,
         width: 3840
       },
       playerStartPos: {
@@ -193,9 +193,9 @@ let gameConfig = {
           x: 1700,
           y: 3550
         },
-        sceneMountainHouse: {
-          x: 2000,
-          y: 3000
+        sceneMountainHome: {
+          x: 2600,
+          y: 2750
         },
         sceneCliff: {
           x: 1500,
@@ -204,6 +204,25 @@ let gameConfig = {
         default: {
           x: 1700,
           y: 3550
+        },
+      }
+    },
+    sceneMountainHome: {
+      key: 'map-mountain-home',
+      imgKey: 'mountain-home',
+      tileSetName: 'mountain-home-tileset-20px',
+      mapBounds: {
+        height: 1280,
+        width: 1120
+      },
+      playerStartPos: {
+        sceneMountains: {
+          x: 645,
+          y: 970
+        },
+        default: {
+          x: 645,
+          y: 970
         },
       }
     },

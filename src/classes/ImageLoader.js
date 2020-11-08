@@ -71,7 +71,9 @@ export default class ImageLoader {
         // this.scene.load.tilemapTiledJSON( 'map-cave2', 'levels/mountains/cave2-20px.json' );
         break;
       }
-      case 'sceneMountainHouse': {
+      case 'sceneMountainHome': {
+        this.scene.load.image( 'mountain-home', 'images/background/mountain-home.png' );
+        this.scene.load.tilemapTiledJSON( 'map-mountain-home', 'levels/mountains/mountain-home-20px.json' );
         break;
       }
 
