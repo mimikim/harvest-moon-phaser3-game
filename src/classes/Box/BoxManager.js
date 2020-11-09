@@ -167,6 +167,7 @@ export default class BoxManager {
     instance.dialogBox.loadBox( text );
   }
 
+  // hides tasks buttons
   hideBtns() {
     this.btns.statusBtn.setVisible( false );
     this.btns.taskBtn.setVisible( false );
