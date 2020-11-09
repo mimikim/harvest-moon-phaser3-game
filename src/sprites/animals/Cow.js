@@ -1,6 +1,5 @@
 /**
- * Creates Cow, extension of the Sprite Game Object class
- * https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Sprite.html
+ * Creates Cow, extension of custom Sprite class
  */
 
 import Sprite from '../Sprite';

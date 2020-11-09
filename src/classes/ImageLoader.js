@@ -373,4 +373,5 @@ export default class ImageLoader {
     this.scene.load.image( 'hay', 'images/items/misc/hay.png' );
     this.scene.load.image( 'rock', 'images/items/misc/rock.png' );
   }
+
 }

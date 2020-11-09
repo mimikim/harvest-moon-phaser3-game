@@ -15,6 +15,7 @@ let gameConfig = {
 
   // player default movement speed
   playerSpeed: 325,
+  // playerSpeed: 500,
 
   // map vars, for loading new Map class
   map: {
@@ -585,6 +586,16 @@ let gameConfig = {
 
   // Task menu is open
   taskMenuOpen: false,
+
+  // player is overlapping sprite's dialog rectangle
+  overlapData: {
+    isActive: false,
+    sprite: {}
+  },
+
+  // finding the baby cow opens up additional dialog
+  foundBabyCow: true,
+
 };
 
 export default gameConfig;

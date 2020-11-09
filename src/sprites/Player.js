@@ -27,6 +27,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     // restrain player to game bounds, so cannot go off screen
     this.body.setCollideWorldBounds( true );
 
+    this.body.allowGravity = false;
+
     // setting animations for jack
     this.setAnimations();
 

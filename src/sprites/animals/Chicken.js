@@ -1,6 +1,5 @@
 /**
- * Creates Chicken, extension of the Sprite Game Object class
- * https://photonstorm.github.io/phaser3-docs/Phaser.GameObjects.Sprite.html
+ * Creates Chicken, extension of custom Sprite class
  */
 
 import Sprite from '../Sprite';

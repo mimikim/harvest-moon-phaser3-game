@@ -4,7 +4,7 @@
 
 import ModalBox from './ModalBox';
 import allTasks from '../../config/tasks';
-import dialogAnimals from '../../config/dialog-animals';
+import dialogAnimals from '../../config/dialog-animal';
 import dialogNPCs from '../../config/dialog-npc';
 import config from "../../config";
 import gameConfig from "../../config/game-config";
@@ -97,12 +97,35 @@ export default class BoxManager {
     this.hideBtns();
 
     // determine who Player is speaking to
+    const targetSprite = gameConfig.overlapData.sprite;
+    const type = targetSprite.creatureType;
+    const name = targetSprite.name;
+    let text;
 
+    // animal or npc dialog
+    switch( type ) {
+      case 'animal': {
+        let options = dialogAnimals[name].default;
 
-    // grab text object
-    let text = "I spotted a cave elf sneaking a peak at us! I think they like cows... :)";
+        // append additional dialog options, if found lil babby
+        if ( gameConfig.foundBabyCow ) {
+          options.push( ... dialogAnimals[name].additional );
+        }
+
+        text = this.randomIndex( options );
+        break;
+      }
+      case 'npc': {
+        break;
+      }
+    }
 
     this.dialogBox.loadBox( text );
+  }
+
+  // grabs random index from array
+  randomIndex( arr ) {
+    return arr[Math.floor( Math.random() * arr.length )];
   }
 
   // loads buttons to view Tasks or Status, by default see Status first

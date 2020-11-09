@@ -15,7 +15,7 @@ export default class ObjectLoader {
 
     // physics groups
     this.exitGroup = this.scene.physics.add.group();
-    // this.interactiveGroup = this.scene.physics.add.group(); // interactive items
+    this.interactiveGroup = this.scene.physics.add.group(); // interactive items
   }
 
   setup() {
@@ -42,10 +42,10 @@ export default class ObjectLoader {
           let name = obj.properties[0].value;
 
           if ( type === 'cow' ) {
-            this.sprites[ name ] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' }, name );
+            this.sprites[name] = new Cow( { scene: this.scene, x: obj.x, y: obj.y, key: 'cow' }, name, 'animal' );
           }
           else if ( type === 'chicken' ) {
-            this.sprites[ name ] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' }, name );
+            this.sprites[name] = new Chicken( { scene: this.scene, x: obj.x, y: obj.y, key: 'chicken2' }, name, 'animal' );
           }
           else if ( type === 'calf' ) {}
           else if ( type === 'chick' ) {}

@@ -29,6 +29,7 @@ export default class Game extends Phaser.Scene {
     };
 
     this._BTNS = {};
+    this._INPUTS = {};
     this._MAP = {};
     this._MODAL = {};
     this._PLAYER = {};
@@ -75,7 +76,11 @@ export default class Game extends Phaser.Scene {
     this.cameras.main.startFollow( this._PLAYER ); // camera follows player
 
     // enable cursor keys
-    this.cursors = this.input.keyboard.createCursorKeys();
+    this._INPUTS = this.input.keyboard.createCursorKeys();
+
+    // assign additional keys
+    this._INPUTS.enter = this.input.keyboard.addKey( 13 );
+    this._INPUTS.escape = this.input.keyboard.addKey( 27 );
 
     this.createObjectLoader();  // generate items
     this.createEventListeners();  // event listeners
@@ -83,7 +88,7 @@ export default class Game extends Phaser.Scene {
     // handles modal box for tasks and status
     this._UTILITY.boxManager = new BoxManager( this );
 
-    console.log( this );
+    // console.log( this );
   }
 
   // update loop
@@ -98,6 +103,24 @@ export default class Game extends Phaser.Scene {
     if ( ! gameConfig.pauseUpdateLoop ) {
       this.animation_update_loop();
     }
+
+    // if there is an overlap sprite stored, check if overlapping
+    if ( gameConfig.overlapData.isActive && Object.keys( gameConfig.overlapData.sprite ).length !== 0 ) {
+      let isOverlapping = this.checkOverlap( this._PLAYER, gameConfig.overlapData.sprite );
+
+      if ( isOverlapping ) {
+        gameConfig.overlapData.isActive = true;
+      } else {
+        gameConfig.overlapData.isActive = false;
+        gameConfig.overlapData.sprite = {};
+      }
+    }
+
+  }
+
+  // checks if Player is overlapping passed sprite
+  checkOverlap( player, sprite ) {
+    return Phaser.Geom.Intersects.RectangleToRectangle( player.getBounds(), sprite.getBounds() );
   }
 
   // plays animation of passed key
@@ -109,25 +132,25 @@ export default class Game extends Phaser.Scene {
 
   // animation update loop
   animation_update_loop() {
-    if ( this.cursors.down.isDown ) {
+    if ( this._INPUTS.down.isDown ) {
       this._PLAYER.body.setVelocityY( gameConfig.playerSpeed );
       this._PLAYER.body.setVelocityX( 0 );
       this._ANIMS.pressedCursor = 'down';
       this.playAnim( 'walking-down' );
     }
-    else if ( this.cursors.up.isDown ) {
+    else if ( this._INPUTS.up.isDown ) {
       this._PLAYER.body.setVelocityY(-gameConfig.playerSpeed );
       this._PLAYER.body.setVelocityX( 0 );
       this._ANIMS.pressedCursor = 'up';
       this.playAnim( 'walking-up' );
     }
-    else if ( this.cursors.left.isDown ) {
+    else if ( this._INPUTS.left.isDown ) {
       this._PLAYER.body.setVelocityX( -gameConfig.playerSpeed );
       this._PLAYER.body.setVelocityY( 0 );
       this._ANIMS.pressedCursor = 'left';
       this.playAnim( 'walking-left' );
     }
-    else if ( this.cursors.right.isDown ) {
+    else if ( this._INPUTS.right.isDown ) {
       this._PLAYER.body.setVelocityX( gameConfig.playerSpeed );
       this._PLAYER.body.setVelocityY( 0 );
       this._ANIMS.pressedCursor = 'right';
@@ -155,52 +178,56 @@ export default class Game extends Phaser.Scene {
   }
 
   createEventListeners() {
-    // if SPACE bar is pressed, play stored Action animation
-    this.input.keyboard.on( 'keydown_SPACE', () => {
-      gameConfig.pauseUpdateLoop = true;
-      this.stopPlayerAnim();
+    // keyboard events
+    this.input.keyboard.on( 'keydown', function() {
 
-      switch( this._ANIMS.pressedCursor ) {
-        case 'down':
-          this.playAnim( 'ring-cowbell-down' );
-          break;
-        case 'up':
-          this.playAnim( 'ring-cowbell-up' );
-          break;
-        case 'left':
-          this.playAnim( 'ring-cowbell-left' );
-          break;
-        case 'right':
-          this.playAnim( 'ring-cowbell-right' );
-          break;
-        default:
-          this._PLAYER.setTexture( 'jack-standing', 0 );
+      // on ENTER, open dialog box for animals/person/point-of-interest
+      if ( this._INPUTS.enter.isDown && gameConfig.overlapData.isActive ) {
+        this._UTILITY.boxManager.createBox( 'dialog' );
       }
-    } );
 
-    // on SHIFT, display Animal Status / Active Tasks buttons
-    this.input.keyboard.on( 'keydown_SHIFT', () => {
-      this._UTILITY.boxManager.createBox( 'tasks' );
-    });
+      // on SHIFT, display Animal Status / Active Tasks buttons
+      else if ( this._INPUTS.shift.isDown ) {
+        this._UTILITY.boxManager.createBox( 'tasks' );
+      }
 
-    // on ENTER, open dialog box for animals/person/point-of-interest
-    this.input.keyboard.on( 'keydown_ENTER', () => {
-      this._UTILITY.boxManager.createBox( 'dialog' );
-    });
+      // ESC closes open dialog box
+      else if ( this._INPUTS.escape.isDown ) {
+        this._UTILITY.boxManager.hideBox();
+      }
 
-    // ESC closes open dialog box
-    this.input.keyboard.on('keydown_ESC', () => {
-      this._UTILITY.boxManager.hideBox();
-    });
+      // if SPACE bar is pressed, play stored Action animation
+      else if ( this._INPUTS.space.isDown ) {
+        gameConfig.pauseUpdateLoop = true;
+        this.stopPlayerAnim();
 
-    // restart update loop, if not pressing SPACE or SHIFT or ENTER
-    this.input.keyboard.on( 'keydown', function( e ) {
-      if ( e.keyCode !== '32'&& e.code !== 'Space'
-        && e.keyCode !== '16' && e.code !== 'Shift'
-        && e.keyCode !== '13' && e.code !== 'Enter'
-      ) {
+        switch( this._ANIMS.pressedCursor ) {
+          case 'down':
+            this.playAnim( 'ring-cowbell-down' );
+            break;
+          case 'up':
+            this.playAnim( 'ring-cowbell-up' );
+            break;
+          case 'left':
+            this.playAnim( 'ring-cowbell-left' );
+            break;
+          case 'right':
+            this.playAnim( 'ring-cowbell-right' );
+            break;
+          default:
+            this._PLAYER.setTexture( 'jack-standing', 0 );
+        }
+      }
+
+      // after SPACE bar pressed, restart update loop
+      else if ( this._INPUTS.space.isUp ) {
         gameConfig.pauseUpdateLoop = false;
       }
+
+      else {
+        // gameConfig.pauseUpdateLoop = false;
+      }
+
     }.bind( this ) );
 
     // on animation complete, sets standing texture
@@ -221,7 +248,7 @@ export default class Game extends Phaser.Scene {
         default:
           this._PLAYER.setTexture( 'jack-standing', 0 );
       }
-    }, this);
+    }, this );
 
   }
 

@@ -2,10 +2,7 @@
  * object of animal dialog
  */
 
-const dialogAnimals = {
-  // finding the baby cow opens up additional dialog
-  foundBabyCow: false,
-
+const dialogAnimal = {
   cow1: {
     default: [
       "Mooooo",
@@ -99,4 +96,4 @@ const dialogAnimals = {
 
 };
 
-export default dialogAnimals;
+export default dialogAnimal;
