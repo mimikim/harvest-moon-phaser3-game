@@ -88,7 +88,7 @@ export default class Game extends Phaser.Scene {
     // handles modal box for tasks and status
     this._UTILITY.boxManager = new BoxManager( this );
 
-    // console.log( this );
+    console.log( this );
   }
 
   // update loop
@@ -106,7 +106,7 @@ export default class Game extends Phaser.Scene {
 
     // if there is an overlap sprite stored, check if overlapping
     if ( gameConfig.overlapData.isActive && Object.keys( gameConfig.overlapData.sprite ).length !== 0 ) {
-      let isOverlapping = this.checkOverlap( this._PLAYER, gameConfig.overlapData.sprite );
+      let isOverlapping = this.checkOverlap( this._PLAYER, gameConfig.overlapData.overlap );
 
       if ( isOverlapping ) {
         gameConfig.overlapData.isActive = true;

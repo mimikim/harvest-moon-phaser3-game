@@ -30,8 +30,8 @@ export default class Sprite extends Phaser.GameObjects.Sprite {
         this.overlap = this.scene.add.rectangle(
             this.config.x,
             this.config.y,
-            this.width + 50,
-            this.height + 50
+            this.width + 20,
+            this.height + 20
         );
 
         // adding physics, these sprites are a dynamic bodies
@@ -58,7 +58,9 @@ export default class Sprite extends Phaser.GameObjects.Sprite {
             function ( overlap, player ) {
                 gameConfig.overlapData.isActive = true;
                 gameConfig.overlapData.sprite = this;
+                gameConfig.overlapData.overlap = overlap;
                 this.overlapCallback( overlap, player, this );
+                // console.log('overlapping')
             }.bind( this ),
             false,
             this.scene

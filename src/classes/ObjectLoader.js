@@ -5,6 +5,7 @@
 import gameConfig from '../config/game-config';
 import Cow from '../sprites/animals/Cow';
 import Chicken from '../sprites/animals/Chicken';
+import Sprite from '../sprites/Sprite';
 
 export default class ObjectLoader {
   constructor( config ) {
@@ -28,6 +29,7 @@ export default class ObjectLoader {
    */
   parseMapData() {
     this.mapData.forEach( layer => {
+      // console.log(layer);
       // for Exit object layer
       if ( layer.name === 'exits' ) {
         layer.objects.forEach( obj => {
@@ -54,7 +56,23 @@ export default class ObjectLoader {
         });
       }
 
-      // for interactive items, eg: food, crops, flowers, etc
+      // npcs
+
+
+      // for interactive items, eg: food, crops, flowers
+      if ( layer.name === 'interactive' ) {
+        layer.objects.forEach( obj => {
+          // sign type uses pixel
+          if ( this.findPropValue( obj.properties, 'type' ) === 'sign' ) {
+            this.addToPhysicsGroup( obj, this.interactiveGroup, 'interactive', 'pixel' );
+          } else {
+            let key = this.findPropValue( obj.properties, 'name' );
+            // otherwise make a sprite w/ img key
+            this.sprites[key] = new Sprite( { scene: this.scene, x: obj.x, y: obj.y, key: key }, key, 'interactive' );
+          }
+        });
+      }
+
     });
   }
 
@@ -72,6 +90,21 @@ export default class ObjectLoader {
     physicsGroup.add( newObj[0] );
   }
 
+  /**
+   * finds and returns the value of the passed property name
+   * @param props - array of properties
+   * @param key - string property name to filter by
+   */
+  findPropValue( props, key ) {
+    return props.reduce( ( initVal, currentVal, currentIndex, arr ) => {
+      if ( initVal.name === key ) {
+        return initVal.value;
+      } else if ( currentVal.name === key ) {
+        return currentVal.value;
+      }
+    });
+  }
+
   // set collisions
   setCollision( ) {
     // for each Exit inside exitGroup, set overlap event
@@ -87,6 +120,28 @@ export default class ObjectLoader {
         this.scene
       );
     } );
+
+    this.interactiveGroup.children.entries.forEach( entry => {
+      // console.log( entry.data.list );
+      this.scene.physics.add.overlap(
+        this.player,
+        entry,
+        function() {
+          if ( this.scene._ANIMS.pressedCursor === 'up' ) {
+
+          }
+          console.log('overlapping sign')
+          // grab type
+          // if type is sign, display msg in dialog box. this is used for signs,
+          // if type is inventory, add item to inventory / track for tasks. things like crops, forest forageables, and flowers
+          //    name of item is image key
+          //
+        }.bind( this ),
+        null,
+        this.scene
+      );
+    } );
+
   }
 
   // start scene, based on passed value

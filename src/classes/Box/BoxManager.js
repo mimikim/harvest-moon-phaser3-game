@@ -101,6 +101,7 @@ export default class BoxManager {
     const type = targetSprite.creatureType;
     const name = targetSprite.name;
     let text;
+    console.log(targetSprite);
 
     // animal or npc dialog
     switch( type ) {
@@ -115,7 +116,13 @@ export default class BoxManager {
         text = this.randomIndex( options );
         break;
       }
+
       case 'npc': {
+        break;
+      }
+
+      case 'interactive': {
+
         break;
       }
     }
