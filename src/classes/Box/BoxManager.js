@@ -102,6 +102,7 @@ export default class BoxManager {
     const name = targetSprite.name;
     let text;
     console.log(targetSprite);
+    console.log(type);
 
     // animal or npc dialog
     switch( type ) {
@@ -122,6 +123,7 @@ export default class BoxManager {
       }
 
       case 'interactive': {
+          // if sign, display msg
 
         break;
       }

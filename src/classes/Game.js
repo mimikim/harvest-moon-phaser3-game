@@ -88,7 +88,7 @@ export default class Game extends Phaser.Scene {
     // handles modal box for tasks and status
     this._UTILITY.boxManager = new BoxManager( this );
 
-    console.log( this );
+    // console.log( this );
   }
 
   // update loop
@@ -106,7 +106,7 @@ export default class Game extends Phaser.Scene {
 
     // if there is an overlap sprite stored, check if overlapping
     if ( gameConfig.overlapData.isActive && Object.keys( gameConfig.overlapData.sprite ).length !== 0 ) {
-      let isOverlapping = this.checkOverlap( this._PLAYER, gameConfig.overlapData.overlap );
+      let isOverlapping = Phaser.Geom.Intersects.RectangleToRectangle( this._PLAYER.getBounds(), gameConfig.overlapData.overlap.getBounds() );
 
       if ( isOverlapping ) {
         gameConfig.overlapData.isActive = true;
@@ -116,11 +116,6 @@ export default class Game extends Phaser.Scene {
       }
     }
 
-  }
-
-  // checks if Player is overlapping passed sprite
-  checkOverlap( player, sprite ) {
-    return Phaser.Geom.Intersects.RectangleToRectangle( player.getBounds(), sprite.getBounds() );
   }
 
   // plays animation of passed key
@@ -183,6 +178,7 @@ export default class Game extends Phaser.Scene {
 
       // on ENTER, open dialog box for animals/person/point-of-interest
       if ( this._INPUTS.enter.isDown && gameConfig.overlapData.isActive ) {
+        // console.log(gameConfig);
         this._UTILITY.boxManager.createBox( 'dialog' );
       }
 

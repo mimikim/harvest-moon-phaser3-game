@@ -64,7 +64,7 @@ export default class ObjectLoader {
         layer.objects.forEach( obj => {
           // sign type uses pixel
           if ( this.findPropValue( obj.properties, 'type' ) === 'sign' ) {
-            this.addToPhysicsGroup( obj, this.interactiveGroup, 'interactive', 'pixel' );
+            this.addToPhysicsGroup( obj, this.interactiveGroup, 'interactive', 'pixel', 'interactive' );
           } else {
             let key = this.findPropValue( obj.properties, 'name' );
             // otherwise make a sprite w/ img key
@@ -83,10 +83,14 @@ export default class ObjectLoader {
    * @param physicsGroup : group for this new Sprite
    * @param layerName : string name of the Object Layer in Tiled
    * @param keyName : string key of image asset
+   * @param type : string value for 'creatureType' property
    */
-  addToPhysicsGroup( obj, physicsGroup, layerName, keyName ) {
+  addToPhysicsGroup( obj, physicsGroup, layerName, keyName, type = '' ) {
     var newObj = this.scene._MAP.tilemap.createFromObjects( layerName, obj.id, { key: keyName } );
     newObj[0].setOrigin( 0.5, -0.5 );
+    newObj[0].name = keyName;
+    newObj[0].creatureType = type;
+    // console.log( newObj[0]);
     physicsGroup.add( newObj[0] );
   }
 
@@ -126,16 +130,11 @@ export default class ObjectLoader {
       this.scene.physics.add.overlap(
         this.player,
         entry,
-        function() {
-          if ( this.scene._ANIMS.pressedCursor === 'up' ) {
-
-          }
-          console.log('overlapping sign')
-          // grab type
-          // if type is sign, display msg in dialog box. this is used for signs,
-          // if type is inventory, add item to inventory / track for tasks. things like crops, forest forageables, and flowers
-          //    name of item is image key
-          //
+        function( player, elm ) {
+          // console.log('overlapping sign')
+          gameConfig.overlapData.isActive = true;
+          gameConfig.overlapData.sprite = elm;
+          gameConfig.overlapData.overlap = elm;
         }.bind( this ),
         null,
         this.scene

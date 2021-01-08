@@ -590,6 +590,7 @@ let gameConfig = {
   // player is overlapping sprite's dialog rectangle
   overlapData: {
     isActive: false,
+    overlap: {},
     sprite: {}
   },
 
